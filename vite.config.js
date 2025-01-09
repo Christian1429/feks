@@ -2,7 +2,6 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
 export default defineConfig({
-  base: '/Znajkie/feks/',
   plugins: [react()],
   build: {
     outDir: 'dist',
@@ -13,13 +12,9 @@ export default defineConfig({
         },
       },
     },
-    chunkSizeWarningLimit: 1000,
   },
   server: {
     port: 3000,
     open: true,
-    mimeTypes: {
-      'application/javascript': ['jsx'],
-    },
   },
 });
