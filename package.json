@@ -22,11 +22,11 @@
     "react-router-dom": "^6.28.0",
     "resolve-url-loader": "^5.0.0"
   },
+
+  
   "scripts": {
     "start": "vite",
     "build": "vite build",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "serve": "vite preview"
   },
   "devDependencies": {
@@ -45,5 +45,14 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "builds": [
+    {
+      "src": "src/index.jsx",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "build"
+      }
+    }
+  ]
 }
