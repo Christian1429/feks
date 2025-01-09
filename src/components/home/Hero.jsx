@@ -1,0 +1,38 @@
+import React, { useState } from 'react';
+import Contact from './Contact';
+
+const Hero = () => {
+  const [isContactVisible, setContactVisible] = useState(false);
+
+  const showContact = () => {
+    setContactVisible(true);
+  };
+
+  const hideContact = () => {
+    setContactVisible(false);
+  };
+
+  return (
+    <section className="hero" id="home">
+      <div className="hero-banner">
+        <h1>Civil beredskap</h1>
+        <p>
+          Proffisionell hjälp med att skapa en tryggare vardag för dig och dina
+          förenings medlemmar.
+        </p>
+        <p>Ingen kan göra allt men alla kan göra något.</p>
+        <button className="btn hero-btn" onClick={showContact}>Bli Medlem</button>
+      </div>
+
+      {isContactVisible && (
+        <div className="overlay" onClick={hideContact}>
+          <div className="overlay-content" onClick={(e) => e.stopPropagation()}>
+            <Contact hideContactForm={hideContact} />
+          </div>
+        </div>
+      )}
+    </section>
+  );
+};
+
+export default Hero;

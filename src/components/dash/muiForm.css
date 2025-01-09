@@ -1,0 +1,50 @@
+.textField {
+  margin-bottom: 16px;
+}
+
+.textField .MuiInputBase-input {
+  color: black;
+}
+
+.textField .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline {
+  border-color: black;
+}
+
+.textField .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: darkred;
+}
+
+.textField .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: darkred;
+}
+
+.textField .MuiInputLabel-root {
+  color: black;
+}
+
+.textField .MuiInputLabel-root.Mui-focused {
+  color: darkred;
+}
+
+.textField .MuiInputLabel-root:hover {
+  color: darkred;
+}
+
+.spantag {
+  color: white
+}
+
+strong {
+  color: white
+}
+
+.modal-box {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 24;
+}
