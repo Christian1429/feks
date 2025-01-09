@@ -2,23 +2,23 @@
   "name": "Krissäkra Sverige AB",
   "short_name": "Krissäkra",
   "description": "Krissäkra Sverige AB - Civil beredskap",
-  "start_url": "/FE/",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#ffffff",
   "icons": [
     {
-      "src": "/FE/assets/favicon-192x192.png",
+      "src": "/assets/favicon-192x192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/FE/assets/favicon-512x512.png",
+      "src": "/assets/favicon-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
     },
     {
-      "src": "/FE/assets/apple-touch-icon.png",
+      "src": "/assets/apple-touch-icon.png",
       "sizes": "180x180",
       "type": "image/png"
     }
