@@ -69,7 +69,7 @@ h1,
 h2,
 h3,
 h4 {
-  letter-spacing: var(--spacing);
+  /* letter-spacing: var(--spacing); */
   text-transform: capitalize;
   line-height: 1.25;
   margin-bottom: 0.75rem;
@@ -351,7 +351,7 @@ Featured Tours
 .tour-info {
   padding: 1.25rem 1.5rem;
 }
-/* additional css for different layout*/
+
 .tour-title {
   display: flex;
   justify-content: space-between;
@@ -365,7 +365,7 @@ Featured Tours
 .tour-title p {
   color: var(--clr-grey-7);
 }
-/* end of additional css for different layout*/
+
 .tour-footer {
   display: flex;
   justify-content: space-between;
@@ -464,6 +464,7 @@ add :not(.nav-logo) to img .navbar {
 
 .nav-logo {
   width: 380px;
+  margin-top: .5rem;
   /* margin-left: 1rem; */
 }
 .nav-icons {
@@ -531,7 +532,6 @@ add :not(.nav-logo) to img .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* optional */
     flex-wrap: wrap;
   }
   .nav-header {

@@ -30,7 +30,7 @@ const About = () => {
             beredskap vara enkelt, och med rätt förutsättningar är det också
             möjligt.
           </p>
-          <p> bildreferens : www.msb.se </p>
+          <p> Bildreferens : www.msb.se </p>
           {/* <a href="#" className="btn">
             Läs mer
           </a> */}

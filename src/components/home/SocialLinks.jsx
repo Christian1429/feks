@@ -1,7 +1,7 @@
 import { List, ListItem, IconButton } from '@mui/material';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
-import TwitterIcon from '@mui/icons-material/Twitter';
+import XIcon from '@mui/icons-material/X';
 
 const socialLinks = [
   {
@@ -9,8 +9,12 @@ const socialLinks = [
     href: 'https://www.facebook.com/profile.php?id=61558327136059',
     icon: <FacebookIcon />,
   },
-  { id: 2, href: 'https://www.instagram.com', icon: <InstagramIcon /> },
-  { id: 3, href: 'https://www.twitter.com', icon: <TwitterIcon /> },
+  {
+    id: 2,
+    href: 'https://www.instagram.com/krissakra/',
+    icon: <InstagramIcon />,
+  },
+  { id: 3, href: 'https://x.com/Krissakra', icon: <XIcon /> },
 ];
 
 const SocialLink = ({ href, icon, itemClass }) => {
