@@ -38,19 +38,20 @@ strong {
   color: black
 }
 
+/* Logo Inloggnings-modal */
 .modal-box {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 400px;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 24;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 24;
+  background-color: white;
 }
 
 /* Client page */
-
 .client-profile {
   padding-top: 1rem;
   padding-bottom: 1rem;

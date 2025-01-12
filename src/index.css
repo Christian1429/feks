@@ -163,6 +163,20 @@ a{
   }
 }
 
+@media (max-width: 1024px) {
+  .section {
+    padding: 1rem 0; /* Reduced padding for mobile devices */
+  }
+}
+
+.service {
+  transition: transform 0.3s ease;
+}
+
+.service:hover {
+  transform: scale(1.1);
+}
+
 /*
 =============== 
 Hero
