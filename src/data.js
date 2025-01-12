@@ -44,22 +44,24 @@ export const services = [
   },
 ];
 
-// News links
-
-import link1 from './images/news/msb.jpg';
+// News links images decending order
+import link1 from './images/news/pwn.jpg';
 import link2 from './images/news/kansliet.jpg';
-import link3 from './images/news/SK.jpg';
-import link4 from './images/news/pwn.jpg';
+import link3 from './images/news/msb.jpg';
+import link4 from './images/news/SK.jpg';
 
-export const links = [
+
+
+// High number descending order
+export const newsLinks = [
   {
     id: 1,
     image: link1,
-    date: 'Oktober 28, 2024',
-    title: 'MSB byter namn',
-    info: ` I promemorian föreslås att Myndigheten för samhällsskydd och beredskap (MSB) ska byta namn till Myndigheten för civilt försvar. Det nya namnet syftar till att tydliggöra och markera myndighetens uppdrag inom civilt försvar.`,
+    date: 'Mars 5, 2025',
+    title: 'Nya riktlinjer för cybersäkerhet',
+    info: `Nya riktlinjer för cybersäkerhet har utfärdats för att skydda mot ökande cyberhot.`,
     location: 'Sverige',
-    href: 'https://www.regeringen.se/rattsliga-dokument/departementsserien-och-promemorior/2024/10/myndigheten-for-civilt-forsvar--ett-nytt-namn-for-myndigheten-for-samhallsskydd-och-beredskap-och-vissa-organisatoriska-forandringar/',
+    href: 'https://www.regeringen.se/contentassets/1e56bf5cad214fc78eb80d91c11cccb6/nya-regler-om-cybersakerhet-sou-202418.pdf',
   },
   {
     id: 2,
@@ -73,20 +75,20 @@ export const links = [
   {
     id: 3,
     image: link3,
+    date: 'Oktober 28, 2024',
+    title: 'MSB byter namn',
+    info: ` I promemorian föreslås att Myndigheten för samhällsskydd och beredskap (MSB) ska byta namn till Myndigheten för civilt försvar. Det nya namnet syftar till att tydliggöra och markera myndighetens uppdrag inom civilt försvar.`,
+    location: 'Sverige',
+    href: 'https://www.regeringen.se/rattsliga-dokument/departementsserien-och-promemorior/2024/10/myndigheten-for-civilt-forsvar--ett-nytt-namn-for-myndigheten-for-samhallsskydd-och-beredskap-och-vissa-organisatoriska-forandringar/',
+  },
+  {
+    id: 4,
+    image: link4,
     date: 'November 19, 2024',
     title: 'Utbildning i krishantering',
     info: `En omfattande utbildning i krishantering kommer att hållas för att stärka beredskapen hos myndigheter och företag.`,
     location: 'Sverige',
     href: 'https://www.msb.se/sv/amnesomraden/krisberedskap--civilt-forsvar/det-svenska-civila-beredskapssystemet/',
-  },
-  {
-    id: 4,
-    image: link4,
-    date: 'Mars 5, 2025',
-    title: 'Nya riktlinjer för cybersäkerhet',
-    info: `Nya riktlinjer för cybersäkerhet har utfärdats för att skydda mot ökande cyberhot.`,
-    location: 'Sverige',
-    href: 'https://www.regeringen.se/contentassets/1e56bf5cad214fc78eb80d91c11cccb6/nya-regler-om-cybersakerhet-sou-202418.pdf',
   },
 ];
   

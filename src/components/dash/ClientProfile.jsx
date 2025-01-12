@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getProfile } from '../../api/client';
-import { Box, Typography, CircularProgress, Paper } from '@mui/material';
 import './muiForm.css';
-
-const mainColor = '#BA2C2C';
-const secondaryColor = '#DB7A86';
 
 const ClientProfile = () => {
   const [client, setClient] = useState(null);
@@ -27,54 +23,43 @@ const ClientProfile = () => {
     fetchClient();
   }, []);
 
-  if (isLoading) return <CircularProgress />;
-  if (error)
-    return <Typography color="error">Fel vid hämtning av profil.</Typography>;
+  if (isLoading) return <div className="loader">Loading...</div>;
+  if (error) return <div className="error">Fel vid hämtning av profil.</div>;
 
   return (
-    <Box
-      p={4}
-      className=""
-      sx={{  color: 'white' }}
-    >
-      <Typography variant="h6" gutterBottom>
-        <strong>{client.company ? 'Företag' : 'BRF'}:</strong>{' '}
-        {client.brf && <span>{client.brf}</span>}{' '}
-        {client.company && <span>{client.company}</span>}
-      </Typography>
+    <div className="client-profile">
       {client && (
-        <>
-          <Typography>
-            <strong>Org:</strong> <span className="spantag"> {client.org}</span>
-          </Typography>
-          <Typography>
-            <strong>Email:</strong> <span className="spantag">{client.email}</span>
-          </Typography>
-          <Typography>
-            <strong>Adress:</strong>{' '}
-            <span className="spantag"> {client.address}</span>
-          </Typography>
-          <Typography>
-            <strong>Post adress:</strong>{' '}
-            <span className="spantag">{client.areacode}</span>
-          </Typography>
-          <Typography>
-            <strong>Kontakt person:</strong>{' '}
-            <span className="spantag"> {client.client}</span>
-          </Typography>
-          <Typography>
-            <strong>Medlemskap:</strong>{' '}
-            <span className="spantag">
-              {client.fromDate} - {client.toDate}
-            </span>
-          </Typography>
-          <Typography>
-            <strong>Telefon nummer:</strong>
-            <span className="spantag"> {client.phone}</span>
-          </Typography>
-        </>
+        <div className="profile-card">
+          <ul className="profile-list">
+            <li className="profile-item">
+              <strong>{client.company ? 'Företag' : 'BRF'}:</strong>{' '}
+              {client.brf || client.company}
+            </li>
+            <li className="profile-item">
+              <strong>Org:</strong> {client.org}
+            </li>
+            <li className="profile-item">
+              <strong>Email:</strong> {client.email}
+            </li>
+            <li className="profile-item">
+              <strong>Adress:</strong> {client.address}
+            </li>
+            <li className="profile-item">
+              <strong>Post adress:</strong> {client.areacode}
+            </li>
+            <li className="profile-item">
+              <strong>Kontakt person:</strong> {client.client}
+            </li>
+            <li className="profile-item">
+              <strong>Medlemskap:</strong> {client.fromDate} - {client.toDate}
+            </li>
+            <li className="profile-item">
+              <strong>Telefon nummer:</strong> {client.phone}
+            </li>
+          </ul>
+        </div>
       )}
-    </Box>
+    </div>
   );
 };
 

@@ -23,7 +23,7 @@ const ClientMaps = () => {
   }
 
   return (
-    <div style={{ width: '100%', height: '600px' }}>
+    <div style={{ width: '100%', height: '600px', touchAction: 'none' }}>
       {isApiLoaded ? (
         <iframe
           src="https://snazzymaps.com/embed/602031"

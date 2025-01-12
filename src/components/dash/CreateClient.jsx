@@ -26,7 +26,6 @@ const CreateClient = () => {
     phone: '',
     client: '',
     email: '',
-    // username: '', username is email, can be changed to username if needed
     password: '',
     brf: '',
     org: '',
@@ -113,15 +112,6 @@ const CreateClient = () => {
                 fullWidth
                 margin="normal"
               />
-              {/* --- username is email, can be changed to username if needed --- */}
-              {/* <TextField
-                label="Login Användarnamn"
-                name="username"
-                value={client.username}
-                onChange={handleChange}
-                fullWidth
-                margin="normal"
-              /> */}
               <TextField
                 label="Lösenord"
                 name="password"
@@ -193,7 +183,6 @@ const CreateClient = () => {
                 fullWidth
                 margin="normal"
               />
-
               <Button
                 type="submit"
                 variant="contained"
