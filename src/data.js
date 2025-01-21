@@ -39,8 +39,8 @@ export const services = [
   {
     id: 6,
     icon: 'fas fa-globe fa-fw',
-    title: 'Krissäkra certifiering',
-    text: 'Er fastighet eller verksamhet erhåller en certifiering som visar att ni är krissäkra',
+    title: 'Beredskapscertifiering',
+    text: 'Certifieringen visar att er fastighet eller verksamhet uppnår en hög nivå av beredskap',
   },
 ];
 

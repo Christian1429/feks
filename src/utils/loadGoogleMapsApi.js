@@ -14,4 +14,3 @@ export const loadGoogleMapsApi = (apiKey) => {
   }
   return googleMapsApiPromise;
 };
-
