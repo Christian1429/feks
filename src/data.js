@@ -57,7 +57,7 @@ export const newsLinks = [
   {
     id: 1,
     image: link1,
-    date: 'Mars 5, 2025',
+    date: 'Mars 5, 2024',
     title: 'Nya riktlinjer för cybersäkerhet',
     info: `Nya riktlinjer för cybersäkerhet har utfärdats för att skydda mot ökande cyberhot.`,
     location: 'Sverige',
