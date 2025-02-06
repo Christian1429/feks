@@ -2,7 +2,7 @@
 //   { id: 1, href: '#home', text: 'hem' },
 //   { id: 2, href: '#about', text: 'om oss' },
 //   { id: 3, href: '#services', text: 'tjänster' },
-  // { id: 4, href: '#login', text: 'login', class: 'btn login' },
+// { id: 4, href: '#login', text: 'login', class: 'btn login' },
 // ];
 
 export const services = [
@@ -50,8 +50,6 @@ import link2 from './images/news/kansliet.jpg';
 import link3 from './images/news/msb.jpg';
 import link4 from './images/news/SK.jpg';
 
-
-
 // High number descending order
 export const newsLinks = [
   {
@@ -91,8 +89,8 @@ export const newsLinks = [
     href: 'https://www.msb.se/sv/amnesomraden/krisberedskap--civilt-forsvar/det-svenska-civila-beredskapssystemet/',
   },
 ];
-  
-  export const formFields = [
+
+export const formFields = [
   {
     id: 1,
     type: 'email',

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { newsLinks } from '../../data'; // Assuming you have a data file with news links
+import { newsLinks } from '../../data';
 import Title from './Title';
 import Button from '@mui/material/Button';
 
