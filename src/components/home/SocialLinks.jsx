@@ -8,19 +8,16 @@ const socialLinks = [
     id: 1,
     href: 'https://www.facebook.com/profile.php?id=61558327136059',
     icon: <FacebookIcon />,
-    ariaLabel: 'Facebook',
   },
   {
     id: 2,
     href: 'https://www.instagram.com/krissakra/',
     icon: <InstagramIcon />,
-    ariaLabel: 'Instagram',
   },
   {
     id: 3,
     href: 'https://x.com/Krissakra',
     icon: <XIcon />,
-    ariaLabel: 'Twitter',
   },
 ];
 
@@ -30,7 +27,6 @@ const SocialLink = ({ href, icon, itemClass }) => {
       <IconButton
         component="a"
         href={href}
-        aria-label={ariaLabel}
         target="_blank"
         rel="noopener noreferrer"
         sx={{ color: 'inherit' }}
@@ -49,7 +45,6 @@ const SocialLinks = ({ itemClass }) => {
           {...link}
           key={link.id}
           itemClass={itemClass}
-          ariaLabel={link.icon.props['aria-label'] || 'Social media link'}
         />
       ))}
     </List>
