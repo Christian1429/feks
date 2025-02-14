@@ -11,7 +11,7 @@ import { loginUser } from '../../api/auth';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 import './muiForm.css';
-import Logo from '../../images/log3.jpg'; 
+import Background from '../../images/a5.jpg'; 
 import Svan from '../../images/Svan.svg';
 
 const LoginForm = ({ hideLoginForm }) => {
@@ -56,7 +56,7 @@ const LoginForm = ({ hideLoginForm }) => {
           overflow: 'hidden',
           borderRadius: '8px',
           backgroundColor: 'white',
-          backgroundImage: `url(${Logo})`,
+          backgroundImage: `linear-gradient(rgba(255, 80, 80, 0.7), rgba(0, 0, 0, 0.7)), url(${Background})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -78,8 +78,10 @@ const LoginForm = ({ hideLoginForm }) => {
             src={Svan}
             alt="Svan"
             style={{
-              width: '75px',
-              height: '75px',
+              position: 'absolute',
+              top: '20px',
+              width: '60px',
+              height: '60px',
             }}
           />
         </Box>
@@ -94,13 +96,13 @@ const LoginForm = ({ hideLoginForm }) => {
             cursor: 'pointer',
           }}
         >
-          <CloseIcon sx={{ color: 'red' }} />
+          <CloseIcon sx={{ color: 'black' }} />
         </IconButton>
         <Box
           sx={{
             display: 'flex',
             flexDirection: 'column',
-            paddingTop: '4rem',
+            paddingTop: '5rem',
             height: '100%',
           }}
         >
@@ -123,22 +125,24 @@ const LoginForm = ({ hideLoginForm }) => {
               sx={{ marginBottom: '1rem' }}
             />
             {error && <p style={{ color: 'red' }}>{error}</p>}
-            <Button
-              type="submit"
-              variant="contained"
-              color="primary"
-              fullWidth
-              sx={{
-                height: '40px',
-                backgroundColor: 'hsl(0, 62%, 45%)',
-                transition: 'var(--transition)',
-                '&:hover': {
-                  backgroundColor: 'hsl(0, 80%, 74%)',
-                },
-              }}
-            >
-              Login
-            </Button>
+            <Box sx={{ paddingTop: '10rem' }}>
+              <Button
+                type="submit"
+                variant="contained"
+                color="primary"
+                fullWidth
+                sx={{
+                  height: '45px',
+                  backgroundColor: 'hsl(0, 62%, 45%)',
+                  transition: 'var(--transition)',
+                  '&:hover': {
+                    backgroundColor: 'hsl(0, 80%, 74%)',
+                  },
+                }}
+              >
+                Login
+              </Button>
+            </Box>
           </Box>
         </Box>
       </Box>

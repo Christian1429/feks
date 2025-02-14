@@ -10,12 +10,17 @@ const theme = createTheme({
     },
   },
   components: {
-    MuiSvgIcon: {
+    MuiOutlinedInput: {
       styleOverrides: {
         root: {
-          '&:hover': {
-            color: '#DC7985',
+          backgroundColor: '#ffffff',
+          '& .MuiOutlinedInput-notchedOutline': {
+            borderColor: '#51555a',
           },
+        },
+        input: {
+          backgroundColor: '#ffffff',
+          borderRadius: '4px',
         },
       },
     },

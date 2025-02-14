@@ -18,7 +18,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import { red } from '@mui/material/colors';
 import { useForm } from '@formspree/react';
 import '../../components/dash/muiForm.css';
-// import Logo from '../../images/log3.jpg'; 
+import Background from '../../images/a4.jpg'; 
 
 const Contact = ({ hideContactForm }) => {
 
@@ -106,11 +106,10 @@ const Contact = ({ hideContactForm }) => {
           borderRadius: '8px',
           boxShadow: 24,
           backgroundColor: 'white',
-          // backgroundImage: `url(${Logo})`,
+          backgroundImage: `linear-gradient(rgba(195, 205, 254, 0.7), rgba(0, 0, 0, 0.7)), url(${Background})`,
           // backgroundSize: 'cover',
           // backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
-          border: '1px solid rgba(255, 255, 255, 0.3)',
           overflow: 'autohidden',
         }}
       >
@@ -149,7 +148,7 @@ const Contact = ({ hideContactForm }) => {
           }}
         >
           Fyll i dina uppgifter så kontaktar vi dig för en kostnadsfri
-          konsultation.
+          konsultation eller nå oss via email på info@krissakra.se
         </Typography>
         <Box component="form" onSubmit={handleSubmit}>
           <FormControl fullWidth margin="normal">
@@ -258,23 +257,25 @@ const Contact = ({ hideContactForm }) => {
             rows={4}
             sx={{ marginBottom: isMobile ? '8px' : '20px' }}
           />
-          <Button
-            type="submit"
-            variant="contained"
-            color="primary"
-            fullWidth
-            disabled={state.submitting}
-            sx={{
-              height: '40px',
-              backgroundColor: 'hsl(0, 62%, 45%)',
-              transition: 'var(--transition)',
-              '&:hover': {
-                backgroundColor: 'hsl(0, 80%, 74%)',
-              },
-            }}
-          >
-            Skicka
-          </Button>
+          <Box sx={{ paddingTop: '1rem' }}>
+            <Button
+              type="submit"
+              variant="contained"
+              color="primary"
+              fullWidth
+              disabled={state.submitting}
+              sx={{
+                height: '45px',
+                backgroundColor: 'hsl(0, 62%, 45%)',
+                transition: 'var(--transition)',
+                '&:hover': {
+                  backgroundColor: 'hsl(0, 80%, 74%)',
+                },
+              }}
+            >
+              Skicka
+            </Button>
+          </Box>
         </Box>
       </Box>
     </Modal>
