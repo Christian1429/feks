@@ -70,7 +70,7 @@ const Contact = ({ hideContactForm }) => {
               cursor: 'pointer',
             }}
           >
-            <CloseIcon sx={{ color: red[900] }} />
+            <CloseIcon sx={{ color: black }} />
           </IconButton>
           <Typography
             id="contact-modal-title"
@@ -117,14 +117,14 @@ const Contact = ({ hideContactForm }) => {
           onClick={hideContactForm}
           sx={{
             position: 'absolute',
-            top: '10px',
-            right: '10px',
+            top: isMobile ? '5px' : '10px',
+            right: isMobile ? '5px' : '10px',
             background: 'none',
             border: 'none',
             cursor: 'pointer',
           }}
         >
-          <CloseIcon sx={{ color: red[900] }} />
+          <CloseIcon sx={{ color: 'black' }} />
         </IconButton>
         <Typography
           id="contact-modal-title"
@@ -148,7 +148,7 @@ const Contact = ({ hideContactForm }) => {
           }}
         >
           Fyll i dina uppgifter så kontaktar vi dig för en kostnadsfri
-          konsultation eller nå oss via email på info@krissakra.se
+          konsultation eller nå oss via email: info@krissakra.se
         </Typography>
         <Box component="form" onSubmit={handleSubmit}>
           <FormControl fullWidth margin="normal">

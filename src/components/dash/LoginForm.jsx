@@ -76,7 +76,7 @@ const LoginForm = ({ hideLoginForm }) => {
         >
           <img
             src={Svan}
-            alt="Svan"
+            alt="Logo"
             style={{
               position: 'absolute',
               top: '20px',
