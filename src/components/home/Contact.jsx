@@ -100,7 +100,7 @@ const Contact = ({ hideContactForm }) => {
           top: '50%',
           left: '50%',
           transform: 'translate(-50%, -50%)',
-          width: isMobile ? '100%' : '650px',
+          width: isMobile ? '100%' : '640px',
           height: isMobile ? '100%' : '800px',
           padding: isMobile ? '8px' : '20px',
           borderRadius: '8px',
@@ -150,7 +150,7 @@ const Contact = ({ hideContactForm }) => {
           Fyll i dina uppgifter så kontaktar vi dig för en kostnadsfri
           konsultation eller nå oss via email: info@krissakra.se
         </Typography>
-        <Box component="form" onSubmit={handleSubmit}>
+        <Box component="form" onSubmit={handleSubmit} sx={{ mt: 2 }}>
           <FormControl fullWidth margin="normal">
             <InputLabel
               sx={{
@@ -257,7 +257,7 @@ const Contact = ({ hideContactForm }) => {
             rows={4}
             sx={{ marginBottom: isMobile ? '8px' : '20px' }}
           />
-          <Box sx={{ paddingTop: '1rem' }}>
+          <Box>
             <Button
               type="submit"
               variant="contained"
