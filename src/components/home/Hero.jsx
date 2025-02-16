@@ -17,7 +17,7 @@ const Hero = () => {
       <div className="hero-banner">
         <h1>Civil beredskap</h1>
         <p>
-          Proffisionell hjälp med att skapa en tryggare vardag för dig och dina
+          Proffisionell hjälp med att skapa en tryggare vardag för dig, ditt företag eller dina
           förenings medlemmar.
         </p>
         <p>Ingen kan göra allt men alla kan göra något.</p>

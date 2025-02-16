@@ -46,7 +46,7 @@ const Navbar = () => {
               <Button
                 onClick={handleLogout}
                 variant="contained"
-                sx={{ margin: '0 8px' }}
+                sx={{ margin: '8px 8px', height: '2rem' }}
               >
                 Logout
               </Button>
