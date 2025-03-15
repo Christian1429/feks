@@ -18,7 +18,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import { red } from '@mui/material/colors';
 import { useForm } from '@formspree/react';
 import '../../components/dash/muiForm.css';
-import Background from '../../images/a4.jpg'; 
+// import Background from '../../images/a4.jpg'; url(${Background})
 
 const Contact = ({ hideContactForm }) => {
 
@@ -106,7 +106,7 @@ const Contact = ({ hideContactForm }) => {
           borderRadius: '8px',
           boxShadow: 24,
           backgroundColor: 'white',
-          backgroundImage: `linear-gradient(rgba(195, 205, 254, 0.7), rgba(0, 0, 0, 0.7)), url(${Background})`,
+          backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0.7))`,
           // backgroundSize: 'cover',
           // backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
