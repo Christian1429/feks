@@ -11,6 +11,8 @@ import {
   Select,
   MenuItem,
   Tooltip,
+  FormControlLabel,
+  Checkbox
 } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
@@ -24,9 +26,14 @@ const Contact = ({ hideContactForm }) => {
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const [state, handleSubmit] = useForm('xwkgylwa');
   const [choice, setChoice] = useState('brf');
+  const [consent, setConsent] = useState(false);
 
       const handleChoiceChange = (e) => {
         setChoice(e.target.value);
+      };
+
+      const handleConsentChange = (e) => {
+        setConsent(e.target.checked);
       };
 
   if (state.succeeded) {
@@ -68,7 +75,7 @@ const Contact = ({ hideContactForm }) => {
               cursor: 'pointer',
             }}
           >
-            <CloseIcon sx={{ color: black }} />
+            <CloseIcon sx={{ color: 'black' }} />
           </IconButton>
           <Typography
             id="contact-modal-title"
@@ -99,7 +106,7 @@ const Contact = ({ hideContactForm }) => {
           left: '50%',
           transform: 'translate(-50%, -50%)',
           width: isMobile ? '100%' : '640px',
-          height: isMobile ? '100%' : '820px',
+          height: isMobile ? '100%' : '860px',
           padding: isMobile ? '8px' : '20px',
           borderRadius: '8px',
           boxShadow: 24,
@@ -253,25 +260,38 @@ const Contact = ({ hideContactForm }) => {
             rows={4}
             sx={{ marginBottom: isMobile ? '8px' : '20px' }}
           />
-          <Box>
-            <Button
-              type="submit"
-              variant="contained"
-              color="primary"
-              fullWidth
-              disabled={state.submitting}
-              sx={{
-                height: '45px',
-                backgroundColor: 'hsl(0, 62%, 45%)',
-                transition: 'var(--transition)',
-                '&:hover': {
-                  backgroundColor: 'hsl(0, 80%, 74%)',
-                },
-              }}
-            >
-              Skicka
-            </Button>
+          <Box
+            sx={{ textAlign: 'center' }}
+          >
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={consent}
+                  onChange={handleConsentChange}
+                  required
+                />
+              }
+              label="Jag godkänner att mina uppgifter skickas via e-post och behandlas i enlighet med gällande dataskyddsregler GDPR"
+            />
           </Box>
+          <Button
+            type="submit"
+            variant="contained"
+            color="primary"
+            fullWidth
+            disabled={state.submitting || !consent}
+            sx={{
+              marginTop: '10px',
+              height: '45px',
+              backgroundColor: 'hsl(0, 62%, 45%)',
+              transition: 'var(--transition)',
+              '&:hover': {
+                backgroundColor: 'hsl(0, 80%, 74%)',
+              },
+            }}
+          >
+            Skicka
+          </Button>
         </Box>
       </Box>
     </Modal>
