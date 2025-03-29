@@ -56,7 +56,7 @@ const LoginForm = ({ hideLoginForm }) => {
           overflow: 'hidden',
           borderRadius: '8px',
           backgroundColor: 'white',
-          backgroundImage: `linear-gradient(rgba(255, 80, 80, 0.7), rgba(0, 0, 0, 0.7)), url(${Background})`,
+          backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0.7)), url(${Background})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',

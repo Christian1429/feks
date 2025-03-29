@@ -15,10 +15,8 @@ import {
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import CloseIcon from '@mui/icons-material/Close';
-import { red } from '@mui/material/colors';
 import { useForm } from '@formspree/react';
 import '../../components/dash/muiForm.css';
-// import Background from '../../images/a4.jpg'; url(${Background})
 
 const Contact = ({ hideContactForm }) => {
 
@@ -101,16 +99,13 @@ const Contact = ({ hideContactForm }) => {
           left: '50%',
           transform: 'translate(-50%, -50%)',
           width: isMobile ? '100%' : '640px',
-          height: isMobile ? '100%' : '800px',
+          height: isMobile ? '100%' : '820px',
           padding: isMobile ? '8px' : '20px',
           borderRadius: '8px',
           boxShadow: 24,
           backgroundColor: 'white',
-          backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0.7))`,
-          // backgroundSize: 'cover',
-          // backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          overflow: 'autohidden',
+          backgroundImage: `linear-gradient(rgba(228, 228, 228, 0.7), rgba(255, 255, 255, 0.7))`,
+          borderWidth: '4px',
         }}
       >
         <IconButton
@@ -154,9 +149,10 @@ const Contact = ({ hideContactForm }) => {
           <FormControl fullWidth margin="normal">
             <InputLabel
               sx={{
-                backgroundColor: 'rgb(245,245,245)',
+                backgroundColor: 'rgb(255, 255, 255)',
                 paddingLeft: '5px',
                 paddingRight: '5px',
+                color: 'black',
               }}
               id="choice-label"
             >

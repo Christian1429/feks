@@ -3,6 +3,7 @@ import Services from '../components/home/Services';
 import About from '../components/home/About';
 import NewsLinks from '../components/home/NewsLinks';
 import Footer from '../components/home/Footer';
+// import CookieBanner from '../components/home/Cookie';
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
       <Services />
       <About />
       <NewsLinks />
+      {/* <CookieBanner/> */}
       <Footer />
     </div>
   );

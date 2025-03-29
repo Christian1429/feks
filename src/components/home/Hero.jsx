@@ -15,7 +15,7 @@ const Hero = () => {
   return (
     <section className="hero" id="home">
       <div className="hero-banner">
-        <h1>Civil beredskap</h1>
+        <h1 className='hero-h1'>Civil beredskap</h1>
         <p>
           Proffisionell hjälp med att skapa en tryggare vardag för dig, ditt företag eller dina
           förenings medlemmar.
