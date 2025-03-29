@@ -185,7 +185,7 @@ Hero
 */
 
 .hero {
-  min-height: 100vh;
+  height: 100vh;
   /* background: var(--clr-primary-5); */
       background: linear-gradient(rgba(253, 94, 94, 0.7), rgba(0, 0, 0, 0.7)),
       url('./images/bg.jpg') center/cover no-repeat;
@@ -227,20 +227,17 @@ Hero
 }
 
 @media screen and (max-width: 500px) {
-  .hero {
-    background: linear-gradient(rgba(253, 94, 94, 0.7), rgba(0, 0, 0, 0.7)),
-      url('./images/bg.jpg') center/cover no-repeat;
-  }
 
   .hero-banner {
     padding: 0;
+    margin-top: 0rem;
   }
   .hero-banner p {
     max-width: 45rem;
   }
 
   .hero {
-    min-height: 60vh;
+    height: 60vh;
   }
 
   .hero-h1 {
