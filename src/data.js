@@ -1,10 +1,3 @@
-// export const pageLinks = [
-//   { id: 1, href: '#home', text: 'hem' },
-//   { id: 2, href: '#about', text: 'om oss' },
-//   { id: 3, href: '#services', text: 'tjänster' },
-// { id: 4, href: '#login', text: 'login', class: 'btn login' },
-// ];
-
 export const services = [
   {
     id: 1,
@@ -45,10 +38,10 @@ export const services = [
 ];
 
 // News links images decending order
-import link1 from './images/news/pwn.jpg';
-import link2 from './images/news/kansliet.jpg';
-import link3 from './images/news/msb.jpg';
-import link4 from './images/news/SK.jpg';
+import link1 from './images/links/pwn.jpg';
+import link2 from './images/links/kansliet.jpg';
+import link3 from './images/links/msb.jpg';
+import link4 from './images/links/SK.jpg';
 
 // High number descending order
 export const newsLinks = [

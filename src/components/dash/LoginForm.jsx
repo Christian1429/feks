@@ -10,7 +10,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import { loginUser } from '../../api/auth';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
-import './muiForm.css';
+import '../../index.css';
 import Background from '../../images/a5.jpg'; 
 import Svan from '../../images/Svan.svg';
 

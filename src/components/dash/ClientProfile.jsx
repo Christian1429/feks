@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getProfile } from '../../api/client';
-import './muiForm.css';
+import '../../index.css';
 
 const ClientProfile = () => {
   const [client, setClient] = useState(null);

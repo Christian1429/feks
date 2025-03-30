@@ -1,4 +1,4 @@
-import '../dashboard.css';
+import '../index.css';
 import { Container } from '@mui/material';
 import React from 'react';
 import ClientProfile from '../components/dash/ClientProfile';

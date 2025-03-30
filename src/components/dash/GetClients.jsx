@@ -26,10 +26,10 @@ import {
   ExpandMore,
   Delete as DeleteIcon,
 } from '@mui/icons-material';
-// import dayjs from 'dayjs';
 import 'dayjs/locale/sv';
 import UpdateClient from './PutClient';
-import './muiForm.css';
+import '../../index.css';
+
 const mainColor = '#BA2C2C';
 const secondaryColor = '#DB7A86';
 

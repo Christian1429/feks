@@ -18,13 +18,14 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import CloseIcon from '@mui/icons-material/Close';
 import { useForm } from '@formspree/react';
-import '../../components/dash/muiForm.css';
+import '../../index.css';
 
 const Contact = ({ hideContactForm }) => {
 
+  const email = import.meta.env.VITE_EMAIL_KEY;
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-  const [state, handleSubmit] = useForm('xwkgylwa');
+  const [state, handleSubmit] = useForm(email);
   const [choice, setChoice] = useState('brf');
   const [consent, setConsent] = useState(false);
 
@@ -138,7 +139,7 @@ const Contact = ({ hideContactForm }) => {
             textTransform: 'none',
           }}
         >
-          Första steget mot att krissäkra!
+          Första steget mot er beredskap
         </Typography>
         <Typography
           id="contact-modal-title"
@@ -150,7 +151,7 @@ const Contact = ({ hideContactForm }) => {
           }}
         >
           Fyll i dina uppgifter så kontaktar vi dig för en kostnadsfri
-          konsultation eller nå oss via email: info@krissakra.se
+          konsultation.
         </Typography>
         <Box component="form" onSubmit={handleSubmit} sx={{ mt: 2 }}>
           <FormControl fullWidth margin="normal">

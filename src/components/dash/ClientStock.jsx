@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getStock } from '../../api/client';
 import { Box, Typography, CircularProgress } from '@mui/material';
-import './muiForm.css';
+import '../../index.css';
 
 const mainColor = '#BA2C2C';
 const secondaryColor = '#DB7A86';

@@ -9,19 +9,18 @@ const NewsLink = ({ href, image, title, date, info, location }) => {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="tour-card-link"
     >
-      <article className="tour-card">
-        <div className="tour-img-container">
-          <img src={image} className="tour-img" alt={title} />
-          <p className="tour-date">{date}</p>
+      <article className="link-card">
+        <div className="link-img-container">
+          <img src={image} className="link-img" alt={title} />
+          <p className="link-date">{date}</p>
         </div>
-        <div className="tour-info">
-          <div className="tour-title">
+        <div className="link-info">
+          <div className="link-title">
             <h4>{title}</h4>
           </div>
           <p>{info}</p>
-          <div className="tour-footer">
+          <div className="link-footer">
             <p>
               <span>
                 <i className="fas fa-map"></i>
