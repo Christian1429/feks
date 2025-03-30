@@ -42,6 +42,7 @@ import link1 from './images/links/pwn.jpg';
 import link2 from './images/links/kansliet.jpg';
 import link3 from './images/links/msb.jpg';
 import link4 from './images/links/SK.jpg';
+import link5 from './images/links/3_30_mitti.jpg';
 
 // High number descending order
 export const newsLinks = [
@@ -80,6 +81,15 @@ export const newsLinks = [
     info: `En omfattande utbildning i krishantering kommer att hållas för att stärka beredskapen hos myndigheter och företag.`,
     location: 'Sverige',
     href: 'https://www.msb.se/sv/amnesomraden/krisberedskap--civilt-forsvar/det-svenska-civila-beredskapssystemet/',
+  },
+  {
+    id: 5,
+    image: link5,
+    date: 'Mars 30, 2025',
+    title: 'Gymnasieelever preppas i beredskap',
+    info: 'Rädd eller beredd? Den 1 april genomför alla 880 elever på Östra gymnasiet en temadag om krisberedskap. Skolan är en av kommunens trygghetspunkter där människor ska kunna samlas vid en krissituation.',
+    location: 'Stockholm',
+    href: 'https://www.mitti.se/nyheter/gymnasieelever-preppas-i-beredskap-6.3.287139.69532af23c',
   },
 ];
 

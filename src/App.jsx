@@ -18,7 +18,7 @@ function App() {
           future={{ v7_startTransition: true, v7_relativeSplatPath: true }}
         >
           <Navbar />
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<div>Laddar...</div>}>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route
