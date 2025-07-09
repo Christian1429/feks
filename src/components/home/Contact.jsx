@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import {
   TextField,
   Button,
@@ -150,7 +150,7 @@ const Contact = ({ hideContactForm }) => {
             textTransform: 'none',
           }}
         >
-          Fyll i dina uppgifter så kontaktar vi dig för en kostnadsfri
+          Fyll i dina uppgifter så kontaktar vi dig för kostnadsfri föreläsning och
           konsultation.
         </Typography>
         <Box component="form" onSubmit={handleSubmit} sx={{ mt: 2 }}>

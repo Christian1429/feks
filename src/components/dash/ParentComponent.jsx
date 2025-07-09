@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { getAllClient } from '../../api/client';
 import CreateClient from './PostClient';
 import ClientList from './GetClients';

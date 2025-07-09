@@ -59,6 +59,7 @@ ul {
 }
 a {
   text-decoration: none;
+  color: black;
 }
 img:not(.nav-logo) {
   width: 100%;
@@ -69,7 +70,6 @@ h1,
 h2,
 h3,
 h4 {
-  /* letter-spacing: var(--spacing); */
   text-transform: capitalize;
   line-height: 1.25;
   margin-bottom: 0.75rem;
@@ -113,11 +113,6 @@ p {
     line-height: 1;
   }
 }
-
-a{
-  color: black;
-}
-/*  global classes */
 
 .btn {
   text-transform: uppercase;
@@ -186,7 +181,6 @@ Hero
 
 .hero {
   height: 100vh;
-  /* background: var(--clr-primary-5); */
       background: linear-gradient(rgba(253, 94, 94, 0.7), rgba(0, 0, 0, 0.7)),
       url('./images/bg.jpg') center/cover no-repeat;
   display: flex;
@@ -489,7 +483,6 @@ add :not(.nav-logo) to img .navbar {
 .nav-logo {
   width: 380px;
   margin-top: .5rem;
-  /* margin-left: 1rem; */
 }
 .nav-icons {
   display: none;
@@ -626,10 +619,6 @@ add :not(.nav-logo) to img .navbar {
   color: var(--clr-white);
     transition: var(--transition);
 }
-  /* .dash {
-    background: linear-gradient(rgba(253, 94, 94, 0.7), rgba(0, 0, 0, 0.7)),
-      url('./images/stockholm-stadshuset.jpg') center/cover no-repeat;
-  } */
 
   /* MUI FORM CSS  */
 
@@ -697,9 +686,7 @@ strong {
 
 .profile-card {
   padding: 20px;
-  /* background-color: rgba(255, 255, 255, 0.113); */
   color: black;
-  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
   width: 50%;
 }
 

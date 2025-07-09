@@ -3,7 +3,7 @@ import Services from '../components/home/Services';
 import About from '../components/home/About';
 import NewsLinks from '../components/home/NewsLinks';
 import Footer from '../components/home/Footer';
-// import CookieBanner from '../components/home/Cookie';
+// import CookieBanner from '../components/home/Cookie'; Future implementation
 
 const Home = () => {
   return (

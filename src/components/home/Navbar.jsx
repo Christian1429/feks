@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AppBar, Toolbar, IconButton, Button, Box, useMediaQuery } from '@mui/material';
 import AccountCircle from '@mui/icons-material/AccountCircle';

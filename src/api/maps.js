@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import axiosInstance from '../axiosInstance';
 import { loadGoogleMapsApi } from '../utils/loadGoogleMapsApi';
 import MapIframe from '../components/MapIframe';

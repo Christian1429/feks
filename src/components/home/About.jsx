@@ -5,7 +5,6 @@ const About = () => {
   return (
     <section className="section" id="about">
       <Title title="om" subTitle="oss" />
-
       <div className="section-center about-center">
         <div className="about-img">
           <img src={aboutImg} className="about-photo" alt="" />
@@ -31,9 +30,6 @@ const About = () => {
             möjligt.
           </p>
           <p> Bildreferens : www.msb.se </p>
-          {/* <a href="#" className="btn">
-            Läs mer
-          </a> */}
         </article>
       </div>
     </section>

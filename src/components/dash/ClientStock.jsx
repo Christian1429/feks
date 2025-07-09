@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { getStock } from '../../api/client';
 import { Box, Typography, CircularProgress } from '@mui/material';
 import '../../index.css';
