@@ -2,7 +2,6 @@ import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AppBar, Toolbar, IconButton, Button, Box, useMediaQuery } from '@mui/material';
 import AccountCircle from '@mui/icons-material/AccountCircle';
-import logo from '../../images/krissakra_logo.svg';
 import { AuthContext } from '../../context/AuthContext';
 import SocialLinks from './SocialLinks';
 import LoginForm from '../dash/LoginForm';
@@ -33,10 +32,12 @@ const Navbar = () => {
       <Toolbar sx={{ backgroundColor: 'white' }}>
         <Box sx={{ flexGrow: 1 }}>
           <img
-            src={logo}
-            className="nav-logo"
+            src="https://s3krissakra.s3.eu-north-1.amazonaws.com/pictures/krissakra_logo.svg"
             alt="Krissäkra Sverige AB"
-            style={{ height: '40px' }}
+            className='nav-logo'
+            style={{
+              height: '40px',
+            }}
           />
         </Box>
         {!isMobile && (

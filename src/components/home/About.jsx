@@ -1,4 +1,3 @@
-import aboutImg from '../../images/krisberedskap.jpg';
 import Title from './Title';
 
 const About = () => {
@@ -7,7 +6,10 @@ const About = () => {
       <Title title="om" subTitle="oss" />
       <div className="section-center about-center">
         <div className="about-img">
-          <img src={aboutImg} className="about-photo" alt="" />
+          <img
+            src="https://s3krissakra.s3.eu-north-1.amazonaws.com/pictures/krisberedskap.jpg"
+            alt="Krisberedskap"
+          />
         </div>
         <article className="about-info">
           <h3></h3>

@@ -11,8 +11,6 @@ import { loginUser } from '../../api/auth';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 import '../../index.css';
-import Background from '../../images/a5.jpg'; 
-import Svan from '../../images/Svan.svg';
 
 const LoginForm = ({ hideLoginForm }) => {
   const [username, setUsername] = useState('');
@@ -47,22 +45,33 @@ const LoginForm = ({ hideLoginForm }) => {
       }}
     >
       <Box
-        className="modal-box"
-        sx={{
-          width: '420px',
-          height: '32rem',
-          padding: '20px',
-          position: 'relative',
-          overflow: 'hidden',
-          borderRadius: '8px',
-          backgroundColor: 'white',
-          backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0.7)), url(${Background})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          boxShadow: 24,
-        }}
-      >
+        className="modal-box">
+        <img
+          src="https://s3krissakra.s3.eu-north-1.amazonaws.com/pictures/a5.jpg"
+          alt="login-background"
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            zIndex: 0,
+            filter: 'brightness(0.7)',
+          }}
+        />
+        <div
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            background:
+              'linear-gradient(rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.0))',
+            zIndex: 0,
+          }}
+        />
         <Box
           sx={{
             display: 'flex',
@@ -75,8 +84,8 @@ const LoginForm = ({ hideLoginForm }) => {
           }}
         >
           <img
-            src={Svan}
-            alt="Logo"
+            src="https://s3krissakra.s3.eu-north-1.amazonaws.com/pictures/Svan.svg"
+            alt="Logo-Svan"
             style={{
               position: 'absolute',
               top: '20px',

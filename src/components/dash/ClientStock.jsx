@@ -4,7 +4,6 @@ import { Box, Typography, CircularProgress } from '@mui/material';
 import '../../index.css';
 
 const mainColor = '#BA2C2C';
-const secondaryColor = '#DB7A86';
 
 const ClientStock = () => {
   const [stock, setStock] = useState(null);
