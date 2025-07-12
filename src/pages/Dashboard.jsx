@@ -43,13 +43,13 @@ const Dashboard = () => {
             </Box>
           </Paper>
         </Grid>
-        <Grid>
+        {/* <Grid>
           <Box p={4}>
             <Paper>
               <UploadLinks />
             </Paper>
           </Box>
-        </Grid>
+        </Grid> */}
         <Grid>
           <Box p={4}>
             <Paper>
