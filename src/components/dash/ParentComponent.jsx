@@ -43,9 +43,6 @@ const ParentComponent = () => {
   );
 };
 
-import React, { useState } from 'react';
-import UpdateClient from './PutClient';
-
 const PutParentComponent = () => {
   const [editOpen, setEditOpen] = useState(false);
   const [selectedClient, setSelectedClient] = useState(null);
