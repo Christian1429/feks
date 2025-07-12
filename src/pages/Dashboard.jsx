@@ -2,7 +2,7 @@ import '../index.css'
 import { Container, Grid, Paper, Box } from '@mui/material';
 import GetClients from '../components/dash/GetClients';
 import CreateClient from '../components/dash/CreateClient';
-import UploadLinks from '../components/dash/uploadLinks';
+import UploadLinks from '../components/dash/UploadLinks';
 
 const Dashboard = () => {
   return (
