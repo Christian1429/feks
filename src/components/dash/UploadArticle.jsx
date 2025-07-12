@@ -75,7 +75,7 @@ async function handleSubmit(e) {
 
         <TextField
           label="Titel"
-          name="titel"
+          name="title"
           value={data.title}
           onChange={handleInputChange}
           required
@@ -95,7 +95,7 @@ async function handleSubmit(e) {
 
         <TextField
           label="Datum"
-          name="datum"
+          name="date"
           type="date"
           value={data.date}
           onChange={handleInputChange}
@@ -106,7 +106,7 @@ async function handleSubmit(e) {
 
         <TextField
           label="Plats"
-          name="plats"
+          name="location"
           value={data.location}
           onChange={handleInputChange}
           fullWidth
