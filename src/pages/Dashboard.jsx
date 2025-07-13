@@ -1,8 +1,8 @@
-import '../index.css'
+import '../index.css';
 import { Container, Grid, Paper, Box } from '@mui/material';
 import GetClients from '../components/dash/GetClients';
 import CreateClient from '../components/dash/CreateClient';
-import UploadLinks from '../components/dash/UploadLinks';
+import UploadLinks from '../utils/UploadLinks';
 import UploadArticle from '../components/dash/UploadArticle';
 
 const Dashboard = () => {
