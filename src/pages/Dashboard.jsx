@@ -2,6 +2,7 @@ import '../index.css';
 import GetClients from '../components/dash/GetClients';
 import CreateClient from '../components/dash/CreateClient';
 import UploadArticle from '../components/dash/UploadArticle';
+import DeleteArticle from '../components/dash/DeleteArticle';
 import { useLogout } from '../utils/handleLogout';
 import { useState } from 'react';
 import {
@@ -78,8 +79,20 @@ const Dashboard = () => {
             <ListItemText primary="Lägg upp artikel" />
           </ListItemButton>
         </ListItem>
+        <ListItem disablePadding>
+          <ListItemButton
+            selected={selected === 'articles'}
+            onClick={() => {
+              setSelected('articles');
+              if (isMobile) setMobileOpen(false);
+            }}
+            sx={{ color: 'inherit' }}
+          >
+            <ListItemText primary="Artiklar" />
+          </ListItemButton>
+        </ListItem>
       </List>
-      <Box sx={{ px: 2, paddingBottom: 2 }}>
+      <Box sx={{ px: 2, paddingBottom: 4 }}>
         <Button
           variant="contained"
           color="secondary"
@@ -103,6 +116,8 @@ const Dashboard = () => {
         return <CreateClient />;
       case 'upload':
         return <UploadArticle />;
+      case 'articles':
+        return <DeleteArticle />;
       default:
         return null;
     }

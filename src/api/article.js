@@ -30,3 +30,11 @@ export async function getAllArticles() {
   const response = await axiosInstance.get('/get-articles');
   return response.data;
 }
+
+// s3 and Neon DELETE
+export async function deleteArticle(id, s3key) {
+  const response = await axiosInstance.delete(`/auth/article/${id}`, {
+    data: { s3key },
+  });
+  return response.data;
+}
