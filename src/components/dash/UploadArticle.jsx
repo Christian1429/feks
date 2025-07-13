@@ -1,7 +1,6 @@
 import { useState } from 'react';
-import { uploadImage } from '../../api/uploadLinks';
 import { Box, TextField, Button, Typography, Stack } from '@mui/material';
-import { addArticle } from '../../api/article';
+import { addArticle, uploadImage } from '../../api/article';
 
 export default function AddArticleForm() {
   const [file, setFile] = useState(null);
