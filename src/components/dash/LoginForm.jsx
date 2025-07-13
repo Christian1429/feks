@@ -57,7 +57,7 @@ const LoginForm = ({ hideLoginForm }) => {
         className="modal-box"
         sx={{
           width: isMobile ? '100vw' : '400px',
-          height: isMobile ? '100vh' : 'auto',
+          height: isMobile ? '100dvh' : 'auto',
           maxHeight: isMobile ? '100vh' : '90vh',
           padding: isMobile ? '1rem' : '2rem',
           display: 'flex',
@@ -82,7 +82,7 @@ const LoginForm = ({ hideLoginForm }) => {
             height: '100%',
             objectFit: 'cover',
             zIndex: 0,
-            filter: 'brightness(0.7)',
+            
           }}
         />
         <div
@@ -136,7 +136,7 @@ const LoginForm = ({ hideLoginForm }) => {
           sx={{
             display: 'flex',
             flexDirection: 'column',
-            paddingTop: '5rem',
+            paddingTop: '10rem',
             height: '100%',
           }}
         >
@@ -159,7 +159,7 @@ const LoginForm = ({ hideLoginForm }) => {
               sx={{ marginBottom: '1rem' }}
             />
             {error && <p style={{ color: 'red' }}>{error}</p>}
-            <Box sx={{ paddingTop: '10rem' }}>
+            <Box sx={{ paddingTop: '5rem' }}>
               <Button
                 type="submit"
                 variant="contained"
