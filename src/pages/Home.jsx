@@ -1,7 +1,7 @@
 import Hero from '../components/home/Hero';
 import Services from '../components/home/Services';
 import About from '../components/home/About';
-import NewsLinks from '../components/home/NewsLinks';
+import Articles from '../components/home/Articles'
 import Footer from '../components/home/Footer';
 // import CookieBanner from '../components/home/Cookie'; Future implementation
 
@@ -11,7 +11,7 @@ const Home = () => {
       <Hero />
       <Services />
       <About />
-      <NewsLinks />
+      <Articles />
       {/* <CookieBanner/> */}
       <Footer />
     </div>

@@ -2,7 +2,6 @@ import '../index.css';
 import { Container, Grid, Paper, Box } from '@mui/material';
 import GetClients from '../components/dash/GetClients';
 import CreateClient from '../components/dash/CreateClient';
-import UploadLinks from '../utils/UploadLinks';
 import UploadArticle from '../components/dash/UploadArticle';
 
 const Dashboard = () => {
@@ -43,13 +42,6 @@ const Dashboard = () => {
             </Box>
           </Paper>
         </Grid>
-        {/* <Grid>
-          <Box p={4}>
-            <Paper>
-              <UploadLinks />
-            </Paper>
-          </Box>
-        </Grid> */}
         <Grid>
           <Box p={4}>
             <Paper>

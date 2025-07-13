@@ -1,4 +1,4 @@
-import { uploadImage } from '../../api/uploadLinks';
+import { uploadImage } from '../api/article';
 
 export async function handleImageUpload(e, setPreview, setLoading) {
   const selectedFile = e.target.files[0];
