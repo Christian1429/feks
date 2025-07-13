@@ -3,7 +3,7 @@ import axios from 'axios';
 
 // S3 POST
 export async function uploadImage(file) {
-  const res = await axiosInstance.post('/upload-url', {
+  const res = await axiosInstance.post('/auth/upload-img', {
     fileName: file.name,
     fileType: file.type,
   });
@@ -20,8 +20,8 @@ export async function uploadImage(file) {
 }
 
 // Neon POST
-export async function addArticle(data) {
-  const response = await axiosInstance.post('/article', data);
+export async function postArticle(data) {
+  const response = await axiosInstance.post('/auth/article', data);
   return response.data;
 }
 
