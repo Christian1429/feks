@@ -39,8 +39,6 @@ const Dashboard = () => {
         height: '100%',
         display: 'flex',
         flexDirection: 'column',
-        backgroundColor: '#000000ff',
-        color: '#fff',
       }}
     >
       <List sx={{ flexGrow: 1 }}>
@@ -145,7 +143,7 @@ const Dashboard = () => {
             width: 200,
             boxSizing: 'border-box',
             paddingTop: isMobile ? '64px' : 0,
-            backgroundColor: '#121212',
+            backgroundColor: '#000000ff',
             color: '#fff',
             height: isMobile ? 'calc(100vh - 64px)' : '100vh',
             top: isMobile ? '56px' : 0,
