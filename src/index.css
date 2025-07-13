@@ -310,22 +310,54 @@ Services
 .services {
   background: var(--clr-grey-10);
 }
+
+.service-info {
+  padding-left: 1rem;
+}
+
+.services-center {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
 .service {
-  text-align: center;
-  margin-bottom: 3rem;
+  display: flex;
+  text-align: left;
+  border-radius: 1rem;
+  background: white;
+  padding: 1rem;
+  border-radius: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service:hover .service-icon {
+  transform: rotate(10deg) scale(1.1);
+  box-shadow: 0 12px 20px rgba(246, 114, 114, 0.7);
 }
 .service-icon {
-  background: var(--clr-primary-5);
-  color: var(--clr-primary-1);
-  padding: 0.5rem;
-  display: inline-block;
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
+  background-color: rgb(246, 114, 114);
+  display: grid;
+  place-items: center;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 50%;
+  border: 4px solid rgb(246, 114, 114);
+  align-self: start;
 }
+.service-title {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+  color: #222;
+}
+
 .service-text {
-  max-width: 20rem;
-  margin-left: auto;
-  margin-right: auto;
+  color: #555;
+  line-height: 1.6;
+  font-size: 0.95rem;
 }
 
 @media screen and (min-width: 576px) {
@@ -348,15 +380,14 @@ Services
     display: flex;
     text-align: left;
   }
-  .service-icon {
-    align-self: start;
-  }
-  .service-info {
-    padding-left: 1rem;
-  }
+
   .service-title {
     margin-bottom: 0.5rem;
   }
+  .service {
+    border-radius: 1rem;
+  }
+
 }
 
 /*
@@ -549,7 +580,7 @@ add :not(.nav-logo) to img .navbar {
   background: var(--clr-primary-8);
   padding-left: 2.25rem;
 }
-/* nav toggle functionality */
+
 .nav-links {
   height: 0;
   overflow: hidden;
@@ -558,13 +589,12 @@ add :not(.nav-logo) to img .navbar {
 .show-links {
   height: 280px;
 }
-/* nav at bigger screen size */
 @media screen and (min-width: 992px) {
-  /* hide nav toggle button */
+
   .nav-toggle {
     display: none;
   }
-  /* show links */
+
   .nav-links {
     height: auto;
     display: flex;

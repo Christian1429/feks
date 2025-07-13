@@ -81,8 +81,6 @@ const LoginForm = ({ hideLoginForm }) => {
             width: '100%',
             height: '100%',
             objectFit: 'cover',
-            zIndex: 0,
-            
           }}
         />
         <div
@@ -94,7 +92,6 @@ const LoginForm = ({ hideLoginForm }) => {
             height: '100%',
             background:
               'linear-gradient(rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.0))',
-            zIndex: 0,
           }}
         />
         <Box
