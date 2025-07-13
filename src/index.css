@@ -317,7 +317,7 @@ Services
 
 .services-center {
   display: grid;
-  gap: 2rem;
+  gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
@@ -580,7 +580,7 @@ add :not(.nav-logo) to img .navbar {
   background: var(--clr-primary-8);
   padding-left: 2.25rem;
 }
-/* nav toggle functionality */
+
 .nav-links {
   height: 0;
   overflow: hidden;
@@ -589,13 +589,12 @@ add :not(.nav-logo) to img .navbar {
 .show-links {
   height: 280px;
 }
-/* nav at bigger screen size */
 @media screen and (min-width: 992px) {
-  /* hide nav toggle button */
+
   .nav-toggle {
     display: none;
   }
-  /* show links */
+
   .nav-links {
     height: auto;
     display: flex;
