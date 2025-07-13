@@ -5,6 +5,8 @@ import {
   Box,
   IconButton,
   Modal,
+  useMediaQuery,
+  useTheme,
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import { loginUser } from '../../api/auth';
@@ -18,7 +20,9 @@ const LoginForm = ({ hideLoginForm }) => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
   const { login } = useContext(AuthContext);
-
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -43,9 +47,30 @@ const LoginForm = ({ hideLoginForm }) => {
           backdropFilter: 'blur(2px)',
         },
       }}
+      sx={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
     >
       <Box
-        className="modal-box">
+        className="modal-box"
+        sx={{
+          width: isMobile ? '100vw' : '400px',
+          height: isMobile ? '100vh' : 'auto',
+          maxHeight: isMobile ? '100vh' : '90vh',
+          padding: isMobile ? '1rem' : '2rem',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          boxSizing: 'border-box',
+          position: 'relative',
+          overflow: 'hidden',
+          borderRadius: isMobile ? 0 : '12px',
+          backgroundColor: isMobile ? 'transparent' : 'white',
+          boxShadow: isMobile ? 'none' : theme.shadows[5],
+        }}
+      >
         <img
           src="https://s3krissakra.s3.eu-north-1.amazonaws.com/pictures/a5.jpg"
           alt="login-background"
