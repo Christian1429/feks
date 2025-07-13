@@ -1,7 +1,6 @@
 import axiosInstance from '../axiosInstance';
 import axios from 'axios';
 
-
 // S3 POST
 export async function uploadImage(file) {
   const res = await axiosInstance.post('/upload-url', {
