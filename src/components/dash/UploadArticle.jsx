@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Box, TextField, Button, Typography, Stack } from '@mui/material';
-import { addArticle, uploadImage } from '../../api/article';
+import { postArticle, uploadImage } from '../../api/article';
 
 export default function AddArticleForm() {
   const [file, setFile] = useState(null);
@@ -39,7 +39,7 @@ async function handleSubmit(e) {
   try {
     const imageUrl = await uploadImage(file);
     const articleData = { ...data, imageUrl };
-    await addArticle(articleData);
+    await postArticle(articleData);
     alert('Article added!');
     setData({ title: '', info: '', date: '', location: '', href: '' });
     setFile(null);
