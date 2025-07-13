@@ -58,11 +58,6 @@ async function handleSubmit(e) {
       onSubmit={handleSubmit}
       sx={{
         maxWidth: 500,
-        mx: 'auto',
-        p: 3,
-        boxShadow: 3,
-        borderRadius: 2,
-        backgroundColor: 'background.paper',
       }}
       noValidate
       autoComplete="off"

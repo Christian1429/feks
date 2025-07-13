@@ -1,16 +1,17 @@
 import { useState, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { AppBar, Toolbar, IconButton, Button, Box, useMediaQuery } from '@mui/material';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import { AuthContext } from '../../context/AuthContext';
 import SocialLinks from './SocialLinks';
 import LoginForm from '../dash/LoginForm';
 import { useTheme } from '@mui/material/styles';
+import { useLogout } from '../../utils/handleLogout';
 
 const Navbar = () => {
+  const location = useLocation();
   const [showLogin, setShowLogin] = useState(false);
   const { isAuthenticated, logout } = useContext(AuthContext);
-  const navigate = useNavigate();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
@@ -22,13 +23,15 @@ const Navbar = () => {
     setShowLogin(false);
   };
 
-  const handleLogout = () => {
-    logout();
-    navigate('/');
-  };
+  const handleLogout = useLogout();
+
+  
+  if (location.pathname.startsWith('/dashboard')) {
+    return null;
+  }
 
   return (
-    <AppBar position="static">
+    <AppBar position="fixed">
       <Toolbar sx={{ backgroundColor: 'white' }}>
         <Box sx={{ flexGrow: 1 }}>
           <img

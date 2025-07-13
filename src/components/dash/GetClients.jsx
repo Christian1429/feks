@@ -30,8 +30,8 @@ import 'dayjs/locale/sv';
 import UpdateClient from './PutClient';
 import '../../index.css';
 
-const mainColor = '#BA2C2C';
-const secondaryColor = '#DB7A86';
+const mainColor = '#000000ff';
+const secondaryColor = '#767676ff';
 
 const fetchClients = async () => {
   const data = await getAllClient();
@@ -62,12 +62,12 @@ const ClientList = () => {
     mutationFn: deleteClient,
     onSuccess: () => {
       queryClient.invalidateQueries(['clients']);
-      setSnackbarMessage('Klient är borttagen');
+      setSnackbarMessage('Användare är borttagen');
       setSnackbarSeverity('success');
     },
 
     onError: (error) => {
-      setSnackbarMessage('Fel vid borttagning av klient');
+      setSnackbarMessage('Fel vid borttagning av användare');
       setSnackbarSeverity('Fel');
     },
     onSettled: () => {
@@ -150,9 +150,12 @@ const ClientList = () => {
               fontSize: '1.5rem',
               marginBottom: '0.5rem',
               fontFamily: 'Sans-serif',
+              textAlign: 'center',
+              maxWidth: 500,
+              
             }}
           >
-            Kund info
+            Användare info
           </ListSubheader>
         }
       >
@@ -162,6 +165,8 @@ const ClientList = () => {
               className="textField"
               onClick={() => handleClick(client.id)}
               sx={{
+              maxWidth: 500,
+              mx: 'left',
                 cursor: 'pointer',
                 backgroundColor: mainColor,
                 borderRadius: '5px',
@@ -207,7 +212,6 @@ const ClientList = () => {
                     sx={{
                       textTransform: 'uppercase',
                       width: '100%',
-                      textAlign: 'center',
                     }}
                   />
                 </ListItem>
@@ -281,7 +285,7 @@ const ClientList = () => {
         <DialogTitle id="alert-dialog-title">Bekräfta borttagning</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            Skriv "DELETE" för att bekräfta borttagning av klient.
+            Skriv "DELETE" för att bekräfta borttagning av användare.
           </DialogContentText>
           <TextField
             autoFocus
