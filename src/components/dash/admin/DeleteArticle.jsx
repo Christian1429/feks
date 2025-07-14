@@ -1,8 +1,18 @@
 import { useEffect, useState } from 'react';
-import { getAllArticles, deleteArticle } from '../../api/article';
+import { getAllArticles, deleteArticle } from '../../../api/article';
 import Button from '@mui/material/Button';
 
-const ArticleCard = ({ href, image_url, title, date, info, location, onDelete, id, s3key }) => {
+const ArticleCard = ({
+  href,
+  image_url,
+  title,
+  date,
+  info,
+  location,
+  onDelete,
+  id,
+  s3key,
+}) => {
   return (
     <article className="link-card" style={{ position: 'relative' }}>
       <a href={href} target="_blank" rel="noopener noreferrer">
@@ -46,7 +56,7 @@ const ArticleCard = ({ href, image_url, title, date, info, location, onDelete, i
           aria-label="Delete article"
           title="Delete article"
         >
-        &times; 
+          &times;
         </button>
       )}
     </article>
@@ -84,14 +94,14 @@ export default function Articles() {
     ? sortedArticles.length <= (isMobile ? 6 : 12)
     : sortedArticles.length <= (isMobile ? 3 : 6);
 
-const handleDelete = async (id, s3key) => {
-  try {
-    await deleteArticle(id, s3key);
-    setArticles((prev) => prev.filter((a) => a.id !== id));
-  } catch (error) {
-    console.error('Failed to delete article:', error);
-  }
-};
+  const handleDelete = async (id, s3key) => {
+    try {
+      await deleteArticle(id, s3key);
+      setArticles((prev) => prev.filter((a) => a.id !== id));
+    } catch (error) {
+      console.error('Failed to delete article:', error);
+    }
+  };
 
   return (
     <section className="section" id="articles">

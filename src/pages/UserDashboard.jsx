@@ -1,7 +1,7 @@
 import '../index.css';
 import { Container } from '@mui/material';
-import ClientProfile from '../components/dash/ClientProfile';
-import ClientMaps from '../components/dash/ClientMaps';
+import ClientProfile from '../components/dash/user/ClientProfile';
+import ClientMaps from '../components/dash/user/ClientMaps';
 
 const UserDashboard = () => {
   return (

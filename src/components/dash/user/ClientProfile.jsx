@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { getProfile } from '../../api/client';
-import '../../index.css';
+import { getProfile } from '../../../api/client';
+import '../../../index.css';
 
 const ClientProfile = () => {
   const [client, setClient] = useState(null);

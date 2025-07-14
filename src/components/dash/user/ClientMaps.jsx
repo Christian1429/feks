@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { loadGoogleMapsApi } from '../../utils/loadGoogleMapsApi';
+import { loadGoogleMapsApi } from '../../../utils/loadGoogleMapsApi';
 
 const ClientMaps = () => {
   const [isApiLoaded, setIsApiLoaded] = useState(false);

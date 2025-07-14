@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Box, TextField, Button, Typography, Stack } from '@mui/material';
-import { postArticle, uploadImage } from '../../api/article';
+import { postArticle, uploadImage } from '../../../api/article';
 
 export default function AddArticleForm() {
   const [file, setFile] = useState(null);
@@ -29,28 +29,38 @@ export default function AddArticleForm() {
     }
   }
 
-async function handleSubmit(e) {
-  e.preventDefault();
-  if (!file) {
-    alert('Please select an image.');
-    return;
+  const formatHref = (href) => {
+    if (!href.startsWith('http://') && !href.startsWith('https://')) {
+      return `https://${href}`;
+    }
+    return href;
+  };
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    if (!file) {
+      alert('Please select an image.');
+      return;
+    }
+    setLoading(true);
+    try {
+      const imageUrl = await uploadImage(file);
+        const articleData = {
+          ...data,
+          href: formatHref(data.href),
+          imageUrl,
+        };
+      await postArticle(articleData);
+      setData({ title: '', info: '', date: '', location: '', href: '' });
+      setFile(null);
+      setPreview(null);
+    } catch (err) {
+      console.error(err);
+      alert('Error adding article');
+    } finally {
+      setLoading(false);
+    }
   }
-  setLoading(true);
-  try {
-    const imageUrl = await uploadImage(file);
-    const articleData = { ...data, imageUrl };
-    await postArticle(articleData);
-    alert('Article added!');
-    setData({ title: '', info: '', date: '', location: '', href: '' });
-    setFile(null);
-    setPreview(null);
-  } catch (err) {
-    console.error(err);
-    alert('Error adding article');
-  } finally {
-    setLoading(false);
-  }
-}
 
   return (
     <Box
@@ -58,6 +68,7 @@ async function handleSubmit(e) {
       onSubmit={handleSubmit}
       sx={{
         maxWidth: 500,
+        mx: 'auto',
       }}
       noValidate
       autoComplete="off"
@@ -77,7 +88,7 @@ async function handleSubmit(e) {
         />
 
         <TextField
-          label="Info"
+          label="Artikel text"
           name="info"
           value={data.info}
           onChange={handleInputChange}
@@ -99,7 +110,7 @@ async function handleSubmit(e) {
         />
 
         <TextField
-          label="Plats"
+          label="Plats det beror tex: Stockholm, Göteborg, Malmö"
           name="location"
           value={data.location}
           onChange={handleInputChange}
@@ -107,7 +118,7 @@ async function handleSubmit(e) {
         />
 
         <TextField
-          label="Link"
+          label="Länk till hemsida"
           name="href"
           value={data.href}
           onChange={handleInputChange}
