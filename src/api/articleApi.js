@@ -1,4 +1,4 @@
-import axiosInstance from '../axiosInstance';
+import axiosInstance from '../utils/axiosInstance';
 import axios from 'axios';
 
 // S3 POST
