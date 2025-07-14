@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import DashboardLayout from '../components/dash/admin/DashboardLayout';
-import GetClients from '../components/dash/admin/GetClients';
-import CreateClient from '../components/dash/admin/PostClient';
-import UploadArticle from '../components/dash/admin/PostArticle';
-import DeleteArticle from '../components/dash/admin/DeleteArticle';
+import DashboardLayout from '../components/dashboard/layout/DashboardLayout';
+import GetClients from '../components/dashboard/admin/GetClients';
+import CreateClient from '../components/dashboard/admin/PostClient';
+import UploadArticle from '../components/dashboard/admin/PostArticle';
+import DeleteArticle from '../components/dashboard/admin/DeleteArticle';
 
 const Dashboard = () => {
   const [selected, setSelected] = useState('clients');

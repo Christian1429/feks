@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { putClient } from '../../../api/client';
+import { putClient } from '../../../api/clientApi';
 import { TextField, Button, Snackbar, Alert, Box } from '@mui/material';
 
 const UpdateClient = ({ client, onUpdate, onCloseEdit }) => {

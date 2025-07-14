@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Box, TextField, Button, Typography, Stack } from '@mui/material';
-import { postArticle, uploadImage } from '../../../api/article';
+import { postArticle, uploadImage } from '../../../api/articleApi';
 
 export default function UploadArticle() {
   const [file, setFile] = useState(null);
@@ -45,11 +45,11 @@ export default function UploadArticle() {
     setLoading(true);
     try {
       const imageUrl = await uploadImage(file);
-        const articleData = {
-          ...data,
-          href: formatHref(data.href),
-          imageUrl,
-        };
+      const articleData = {
+        ...data,
+        href: formatHref(data.href),
+        imageUrl,
+      };
       await postArticle(articleData);
       setData({ title: '', info: '', date: '', location: '', href: '' });
       setFile(null);
