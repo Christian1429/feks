@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Box, TextField, Button, Typography, Stack } from '@mui/material';
 import { postArticle, uploadImage } from '../../../api/article';
 
-export default function AddArticleForm() {
+export default function UploadArticle() {
   const [file, setFile] = useState(null);
   const [preview, setPreview] = useState(null);
   const [data, setData] = useState({
