@@ -1,4 +1,4 @@
-import axiosInstance from '../axiosInstance';
+import axiosInstance from '../utils/axiosInstance';
 
 export const getAllClient = async (data) => {
   try {
@@ -16,7 +16,10 @@ export const putClient = async (client) => {
     if (!client.id) {
       throw new Error('Client ID is missing');
     }
-    const response = await axiosInstance.put(`/auth/client/${client.id}`, client);
+    const response = await axiosInstance.put(
+      `/auth/client/${client.id}`,
+      client
+    );
     return response.data;
   } catch (error) {
     console.error('Error updating client:', error);
