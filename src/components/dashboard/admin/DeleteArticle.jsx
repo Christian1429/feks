@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getAllArticles, deleteArticle } from '../../../api/article';
+import { getAllArticles, deleteArticle } from '../../../api/articleApi';
 import Button from '@mui/material/Button';
 
 const ArticleCard = ({

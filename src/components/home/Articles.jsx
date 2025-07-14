@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getAllArticles } from '../../api/article';
+import { getAllArticles } from '../../api/articleApi';
 import Title from './Title';
 import Button from '@mui/material/Button';
 

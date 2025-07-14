@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { postClient } from '../../../api/client';
+import { postClient } from '../../../api/clientApi';
 import {
   TextField,
   Button,
@@ -60,8 +60,8 @@ const CreateClient = () => {
   };
 
   return (
-    <Box sx={{ maxWidth: 500, mx: 'auto', }}>
-      <Typography variant="h5" marginBottom="1rem" textAlign='center'>
+    <Box sx={{ maxWidth: 500, mx: 'auto' }}>
+      <Typography variant="h5" marginBottom="1rem" textAlign="center">
         Lägg till ny användare
       </Typography>
 

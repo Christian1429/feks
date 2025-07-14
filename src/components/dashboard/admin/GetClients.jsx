@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { getAllClient, deleteClient } from '../../../api/client';
+import { getAllClient, deleteClient } from '../../../api/clientApi';
 import {
   List,
   ListItem,

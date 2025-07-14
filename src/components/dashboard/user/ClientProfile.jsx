@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getProfile } from '../../../api/client';
+import { getProfile } from '../../../api/clientApi';
 import '../../../index.css';
 
 const ClientProfile = () => {

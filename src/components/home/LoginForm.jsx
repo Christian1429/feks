@@ -9,7 +9,7 @@ import {
   useTheme,
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
-import { loginUser } from '../../api/auth';
+import { loginUser } from '../../api/authApi';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 import '../../index.css';
