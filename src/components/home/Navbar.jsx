@@ -4,7 +4,7 @@ import { AppBar, Toolbar, IconButton, Button, Box, useMediaQuery } from '@mui/ma
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import { AuthContext } from '../../context/AuthContext';
 import SocialLinks from './SocialLinks';
-import LoginForm from '../dash/LoginForm';
+import LoginForm from './LoginForm';
 import { useTheme } from '@mui/material/styles';
 import { useLogout } from '../../utils/handleLogout';
 

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { getAllClient, deleteClient } from '../../api/client';
+import { getAllClient, deleteClient } from '../../../api/client';
 import {
   List,
   ListItem,
@@ -28,7 +28,7 @@ import {
 } from '@mui/icons-material';
 import 'dayjs/locale/sv';
 import UpdateClient from './PutClient';
-import '../../index.css';
+import '../../../index.css';
 
 const mainColor = '#000000ff';
 const secondaryColor = '#767676ff';
@@ -124,7 +124,7 @@ const ClientList = () => {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          height: '100vh',
+          height: '100dvh',
         }}
       >
         <CircularProgress />
@@ -152,7 +152,7 @@ const ClientList = () => {
               fontFamily: 'Sans-serif',
               textAlign: 'center',
               maxWidth: 500,
-              
+              mx: 'auto',
             }}
           >
             Användare info
@@ -165,8 +165,8 @@ const ClientList = () => {
               className="textField"
               onClick={() => handleClick(client.id)}
               sx={{
-              maxWidth: 500,
-              mx: 'left',
+                maxWidth: 500,
+                mx: 'auto',
                 cursor: 'pointer',
                 backgroundColor: mainColor,
                 borderRadius: '5px',
@@ -193,84 +193,96 @@ const ClientList = () => {
               )}
             </ListItem>
             <Collapse in={open[client.id]} timeout="auto" unmountOnExit>
-              <List
-                component="div"
-                disablePadding
+              <Box
                 sx={{
-                  '& .MuiListItem-root': {
-                    padding: '0px 12px',
-                  },
+                  maxWidth: 500,
+                  mx: 'auto',
+                  backgroundColor: '#f5f5f5',
+                  borderRadius: '4px',
+                  paddingBottom: '1rem',
                 }}
               >
-                <ListItem>
-                  <ListItemText
-                    primary={
-                      client.brf
-                        ? `BRF: ${client.brf}`
-                        : `FÖRETAG: ${client.company}`
-                    }
-                    sx={{
-                      textTransform: 'uppercase',
-                      width: '100%',
-                    }}
-                  />
-                </ListItem>
-                <ListItem>
-                  <ListItemText primary={`Org: ${client.org}`} />
-                </ListItem>
-                <ListItem>
-                  <ListItemText primary={`Kontakt: ${client.client}`} />
-                </ListItem>
-                <ListItem>
-                  <ListItemText primary={`Telefon: ${client.phone}`} />
-                </ListItem>
-                <ListItem>
-                  <ListItemText primary={`E-post: ${client.email}`} />
-                </ListItem>
-                <ListItem>
-                  <ListItemText primary={`Post: ${client.areacode}`} />
-                </ListItem>
-                <ListItem>
-                  <ListItemText
-                    primary={`Skapad: ${new Date(
-                      client.createdAt
-                    ).toLocaleDateString('sv-SE')}`}
-                  />
-                </ListItem>
-                {client.updatedAt && (
+                <List
+                  component="div"
+                  disablePadding
+                  sx={{
+                    '& .MuiListItem-root': {
+                      padding: '0px 12px',
+                    },
+                  }}
+                >
                   <ListItem>
                     <ListItemText
-                      primary={`Uppdaterad: ${new Date(
-                        client.updatedAt
+                      primary={
+                        client.brf
+                          ? `BRF: ${client.brf}`
+                          : `FÖRETAG: ${client.company}`
+                      }
+                      sx={{
+                        textTransform: 'uppercase',
+                        width: '100%',
+                      }}
+                    />
+                  </ListItem>
+                  <ListItem>
+                    <ListItemText primary={`Org: ${client.org}`} />
+                  </ListItem>
+                  <ListItem>
+                    <ListItemText primary={`Kontakt: ${client.client}`} />
+                  </ListItem>
+                  <ListItem>
+                    <ListItemText primary={`Telefon: ${client.phone}`} />
+                  </ListItem>
+                  <ListItem>
+                    <ListItemText primary={`E-post: ${client.email}`} />
+                  </ListItem>
+                  <ListItem>
+                    <ListItemText primary={`Post: ${client.areacode}`} />
+                  </ListItem>
+                  <ListItem>
+                    <ListItemText
+                      primary={`Skapad: ${new Date(
+                        client.createdAt
                       ).toLocaleDateString('sv-SE')}`}
                     />
                   </ListItem>
-                )}
-                <ListItem>
-                  <ListItemText
-                    primary={`Giltig: ${client.fromDate} - ${client.toDate}`}
-                  />
-                </ListItem>
-                <ListItem
-                  sx={{
-                    display: 'flex',
-                    justifyContent: 'end',
-                    alignItems: 'end',
-                  }}
-                >
-                  <IconButton onClick={() => handleEditClick(client.id)}>
-                    <EditIcon />
-                  </IconButton>
-                  <IconButton onClick={() => handleOpenDeleteDialog(client.id)}>
-                    <DeleteIcon />
-                  </IconButton>
-                </ListItem>
-                {editOpen[client.id] && (
-                  <ListItem sx={{ marginBottom: '2rem' }}>
-                    <UpdateClient client={client} onUpdate={handleUpdate} />
+                  {client.updatedAt && (
+                    <ListItem>
+                      <ListItemText
+                        primary={`Uppdaterad: ${new Date(
+                          client.updatedAt
+                        ).toLocaleDateString('sv-SE')}`}
+                      />
+                    </ListItem>
+                  )}
+                  <ListItem>
+                    <ListItemText
+                      primary={`Giltig: ${client.fromDate} - ${client.toDate}`}
+                    />
                   </ListItem>
-                )}
-              </List>
+                  <ListItem
+                    sx={{
+                      display: 'flex',
+                      justifyContent: 'end',
+                      alignItems: 'end',
+                    }}
+                  >
+                    <IconButton onClick={() => handleEditClick(client.id)}>
+                      <EditIcon />
+                    </IconButton>
+                    <IconButton
+                      onClick={() => handleOpenDeleteDialog(client.id)}
+                    >
+                      <DeleteIcon />
+                    </IconButton>
+                  </ListItem>
+                  {editOpen[client.id] && (
+                    <ListItem sx={{ marginBottom: '2rem' }}>
+                      <UpdateClient client={client} onUpdate={handleUpdate} />
+                    </ListItem>
+                  )}
+                </List>
+              </Box>
             </Collapse>
           </div>
         ))}

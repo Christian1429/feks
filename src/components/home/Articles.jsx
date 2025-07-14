@@ -3,6 +3,14 @@ import { getAllArticles } from '../../api/article';
 import Title from './Title';
 import Button from '@mui/material/Button';
 
+const formatHref = (href) => {
+  if (!href) return '#';
+  if (href.startsWith('http://') || href.startsWith('https://')) {
+    return href;
+  }
+  return `https://${href}`;
+};
+
 const ArticleCard = ({ href, image_url, title, date, info, location }) => {
   return (
     <a href={href} target="_blank" rel="noopener noreferrer">

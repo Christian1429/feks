@@ -1,5 +1,5 @@
 
-import { deleteClient } from '../../api/client';
+import { deleteClient } from '../../../api/client';
 
 export const handleDeleteClient = async (
   id,
