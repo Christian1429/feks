@@ -13,7 +13,16 @@ const DashboardLayout = ({
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
-    <Box sx={{ display: 'flex', minHeight: '100dvh' }}>
+    <Box
+      sx={{
+        display: 'flex',
+        minHeight: '100dvh',
+        backgroundImage:
+          'url(https://s3krissakra.s3.eu-north-1.amazonaws.com/pictures/redd-f-RfY1OQqlT3U-unsplash.jpg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+    >
       {isMobile && <MobileAppBar handleDrawerToggle={handleDrawerToggle} />}
 
       <DrawerMenu
@@ -29,7 +38,6 @@ const DashboardLayout = ({
           flexGrow: 1,
           p: 2,
           mt: isMobile ? '64px' : 0,
-          bgcolor: '#fff',
           minHeight: '100dvh',
         }}
       >
