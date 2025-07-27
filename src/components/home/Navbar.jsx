@@ -37,7 +37,7 @@ const Navbar = () => {
           <img
             src="https://s3krissakra.s3.eu-north-1.amazonaws.com/pictures/krissakra_logo.svg"
             alt="Krissäkra Sverige AB"
-            className='nav-logo'
+            className="nav-logo"
             style={{
               height: '40px',
             }}
@@ -58,7 +58,14 @@ const Navbar = () => {
               <IconButton
                 onClick={toggleLoginForm}
                 color="inherit"
-                sx={{ margin: '0 8px' }}
+                disableRipple
+                sx={{
+                  transition: 'transform 0.3s, color 0.3s',
+                  '&:hover': {
+                    transform: 'scale(1.2)',
+                    backgroundColor: 'transparent',
+                  },
+                }}
               >
                 <AccountCircle />
               </IconButton>
