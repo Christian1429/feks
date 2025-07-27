@@ -29,7 +29,13 @@ const SocialLink = ({ href, icon, itemClass }) => {
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        sx={{ color: 'inherit' }}
+        sx={{
+          transition: 'transform 0.3s, color 0.3s',
+          '&:hover': {
+            transform: 'scale(1.2)',
+            backgroundColor: 'transparent',
+          },
+        }}
       >
         {icon}
       </IconButton>
