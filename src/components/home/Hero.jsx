@@ -1,16 +1,31 @@
-import { useState } from 'react';
-import Contact from './Contact';
-
 const Hero = () => {
-  const [isContactVisible, setContactVisible] = useState(false);
 
-  const showContact = () => {
-    setContactVisible(true);
+const scrollToElement = (element, duration = 1000) => {
+  const targetPosition = element.getBoundingClientRect().top + window.scrollY;
+  const startPosition = window.scrollY;
+  const distance = targetPosition - startPosition;
+  let startTime = null;
+
+  const easeInOutQuad = (t) => (t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t);
+
+  const animation = (currentTime) => {
+    if (startTime === null) startTime = currentTime;
+    const timeElapsed = currentTime - startTime;
+    const progress = Math.min(timeElapsed / duration, 1);
+    const run = startPosition + distance * easeInOutQuad(progress);
+    window.scrollTo(0, run);
+    if (timeElapsed < duration) requestAnimationFrame(animation);
   };
 
-  const hideContact = () => {
-    setContactVisible(false);
-  };
+  requestAnimationFrame(animation);
+};
+
+const handleScroll = () => {
+  const contactSection = document.getElementById('contact-form');
+  if (contactSection) {
+    scrollToElement(contactSection, 1500);
+  }
+};
 
   return (
     <section className="hero" id="home">
@@ -29,21 +44,13 @@ const Hero = () => {
           <p>Ingen kan göra allt men alla kan göra något.</p>
           <a
             className="btn cta-btn"
-            onClick={showContact}
+            onClick={handleScroll}
             aria-label="Kontakta oss för civil beredskap, samberedskap och trygghet"
           >
             Kontakta oss
           </a>
         </div>
       </div>
-
-      {isContactVisible && (
-        <div className="overlay" onClick={hideContact}>
-          <div className="overlay-content" onClick={(e) => e.stopPropagation()}>
-            <Contact hideContactForm={hideContact} />
-          </div>
-        </div>
-      )}
     </section>
   );
 };

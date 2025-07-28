@@ -1,29 +1,25 @@
 :root {
-  /* dark shades of primary color*/
   --clr-primary-1: hsl(0, 91%, 17%);
   --clr-primary-2: hsl(0, 84%, 25%);
   --clr-primary-3: hsl(0, 81%, 29%);
   --clr-primary-4: hsl(0, 77%, 34%);
-  /* primary/main color */
   --clr-primary-5: hsl(0, 62%, 45%);
-  /* lighter shades of primary color */
   --clr-primary-6: hsl(0, 57%, 50%);
   --clr-primary-7: hsl(0, 65%, 59%);
   --clr-primary-8: hsl(0, 80%, 74%);
   --clr-primary-9: hsl(0, 94%, 87%);
   --clr-primary-10: hsl(0, 100%, 94%);
-  /* darkest grey - used for headings */
   --clr-grey-1: hsl(0, 61%, 16%);
   --clr-grey-2: hsl(0, 39%, 23%);
   --clr-grey-3: hsl(0, 34%, 30%);
   --clr-grey-4: hsl(0, 28%, 39%);
-  /* grey used for paragraphs */
   --clr-grey-5: hsl(0, 22%, 49%);
   --clr-grey-6: hsl(0, 23%, 60%);
   --clr-grey-7: hsl(0, 27%, 70%);
   --clr-grey-8: hsl(0, 31%, 80%);
   --clr-grey-9: hsl(0, 33%, 89%);
   --clr-grey-10: hsl(0, 36%, 96%);
+
   --clr-white: #fff;
   --ff-primary: 'Lato', sans-serif;
   --transition: all 0.3s linear;
@@ -133,8 +129,8 @@ p {
 }
 /* section */
 .section {
-  padding: 5rem 0;
-  scroll-margin-top: 4rem;
+  padding-top: 2rem;
+  padding-bottom: 5rem;
 }
 .section-title {
   text-align: center;
@@ -152,14 +148,6 @@ p {
   max-width: 1170px;
 }
 
-.service {
-  transition: transform 0.3s ease;
-}
-
-.service:hover {
-  transform: scale(1.1);
-}
-
 @media screen and (min-width: 992px) {
   .section-center {
     width: 95vw;
@@ -168,7 +156,7 @@ p {
 
 @media (max-width: 1024px) {
   .section {
-    padding: 1rem 0;
+    padding-top: 3rem;
   }
 }
 
@@ -315,9 +303,8 @@ Services
 =============== */
 
 .services {
-  background: var(--clr-grey-10);
+  background: linear-gradient(to top, #ffffff 0%, var(--clr-grey-10) 10%, var(--clr-grey-10) 100%);
 }
-
 .service-info {
   padding-left: 1rem;
 }
@@ -338,6 +325,11 @@ Services
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.service:hover {
+  transform: scale(1.1);
+}
+
 
 .service:hover .service-icon {
   transform: rotate(10deg) scale(1.1);

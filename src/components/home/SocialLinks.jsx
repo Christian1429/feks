@@ -8,20 +8,23 @@ const socialLinks = [
     id: 1,
     href: 'https://www.facebook.com/profile.php?id=61558327136059',
     icon: <FacebookIcon />,
+    label: 'Facebook',
   },
   {
     id: 2,
     href: 'https://www.instagram.com/krissakra/',
     icon: <InstagramIcon />,
+    label: 'Instagram',
   },
   {
     id: 3,
     href: 'https://x.com/Krissakra',
     icon: <XIcon />,
+    label: 'X (Twitter)',
   },
 ];
 
-const SocialLink = ({ href, icon, itemClass }) => {
+const SocialLink = ({ href, icon, itemClass, label }) => {
   return (
     <ListItem className={itemClass} sx={{ width: 'auto', padding: 0 }}>
       <IconButton
@@ -29,6 +32,7 @@ const SocialLink = ({ href, icon, itemClass }) => {
         href={href}
         target="_blank"
         rel="noopener noreferrer"
+        aria-label={`Besök vår ${label} sida`}
         sx={{
           transition: 'transform 0.3s, color 0.3s',
           '&:hover': {
