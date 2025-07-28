@@ -125,6 +125,11 @@ const LoginForm = ({ hideLoginForm }) => {
             background: 'none',
             border: 'none',
             cursor: 'pointer',
+            transition: 'transform 0.2s ease',
+            '&:hover': {
+              transform: 'scale(1.2)',
+              backgroundColor: 'transparent',
+            },
           }}
         >
           <CloseIcon sx={{ color: 'black' }} />

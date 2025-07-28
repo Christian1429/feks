@@ -12,7 +12,6 @@ const About = () => {
           />
         </div>
         <article className="about-info">
-          <h3></h3>
           <p>
             Teamet på Krissäkra utgörs av tre grundare med olika bakgrunder och
             erfarenheter. Vi har framgångsrikt kombinerat akademisk kunskap med
