@@ -1,45 +1,22 @@
+import { ArticleCard } from '../../home/Articles';
 import { useEffect, useState } from 'react';
 import { getAllArticles, deleteArticle } from '../../../api/articleApi';
-import Button from '@mui/material/Button';
 
-const ArticleCard = ({
-  href,
-  image_url,
-  title,
-  date,
-  info,
-  location,
-  onDelete,
-  id,
-  s3key,
-}) => {
+const ArticleDelete = ({ article, onDelete }) => {
+  const { id, s3key, ...cardProps } = article;
+
+    const handleDeleteClick = () => {
+      if (window.confirm('Vill du verkligen ta bort?')) {
+        onDelete(id, s3key);
+      }
+    };
+
   return (
-    <article className="link-card" style={{ position: 'relative' }}>
-      <a href={href} target="_blank" rel="noopener noreferrer">
-        <div className="link-img-container">
-          <img src={image_url} className="link-img" alt={title} />
-          <p className="link-date">
-            {new Date(date).toLocaleDateString('sv-SE')}
-          </p>
-        </div>
-        <div className="link-info">
-          <div className="link-title">
-            <h4>{title}</h4>
-          </div>
-          <p>{info}</p>
-          <div className="link-footer">
-            <p>
-              <span>
-                <i className="fas fa-map"></i>
-              </span>
-              {location}
-            </p>
-          </div>
-        </div>
-      </a>
+    <div style={{ position: 'relative' }}>
+      <ArticleCard {...cardProps} />
       {onDelete && (
         <button
-          onClick={() => onDelete(id, s3key)}
+          onClick={handleDeleteClick}
           style={{
             position: 'absolute',
             zIndex: 5,
@@ -59,15 +36,13 @@ const ArticleCard = ({
           &times;
         </button>
       )}
-    </article>
+    </div>
   );
 };
 
-export default function Articles() {
+export default function ArticlesAdmin() {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [showMore, setShowMore] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   useEffect(() => {
     getAllArticles()
@@ -75,24 +50,6 @@ export default function Articles() {
       .catch((err) => console.error('Error loading articles', err))
       .finally(() => setLoading(false));
   }, []);
-
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth <= 768);
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  if (loading) return <p>Laddar artiklar...</p>;
-
-  const sortedArticles = [...articles].sort((a, b) => b.id - a.id);
-
-  const displayedArticles = showMore
-    ? sortedArticles.slice(0, isMobile ? 6 : 12)
-    : sortedArticles.slice(0, isMobile ? 3 : 6);
-
-  const allDisplayed = showMore
-    ? sortedArticles.length <= (isMobile ? 6 : 12)
-    : sortedArticles.length <= (isMobile ? 3 : 6);
 
   const handleDelete = async (id, s3key) => {
     try {
@@ -103,37 +60,19 @@ export default function Articles() {
     }
   };
 
+  if (loading) return <p>Laddar artiklar...</p>;
+
   return (
-    <section className="section" id="articles">
+    <section className="section" id="admin-articles">
       <div className="section-center featured-center">
-        {displayedArticles.map((article) => {
-          return (
-            <ArticleCard
-              {...article}
-              key={article.id}
-              onDelete={handleDelete}
-              s3key={article.s3key}
-            />
-          );
-        })}
+        {articles.map((article) => (
+          <ArticleDelete
+            key={article.id}
+            article={article}
+            onDelete={handleDelete}
+          />
+        ))}
       </div>
-      {!allDisplayed && (
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            marginTop: '20px',
-          }}
-        >
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={() => setShowMore(!showMore)}
-          >
-            {showMore ? 'Visa färre' : 'Visa fler'}
-          </Button>
-        </div>
-      )}
     </section>
   );
 }
