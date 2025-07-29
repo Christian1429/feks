@@ -43,6 +43,7 @@ const handleScroll = () => {
           </p>
           <p>Ingen kan göra allt men alla kan göra något.</p>
           <a
+            href="#contact-form"
             className="btn cta-btn"
             onClick={handleScroll}
             aria-label="Kontakta oss för civil beredskap, samberedskap och trygghet"
