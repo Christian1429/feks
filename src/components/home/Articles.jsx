@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { getAllArticles } from '../../api/articleApi';
 import Title from './Title';
 import Button from '@mui/material/Button';
+import { Map } from 'lucide-react';
 
 const formatHref = (href) => {
   if (!href) return '#';
@@ -11,7 +12,7 @@ const formatHref = (href) => {
   return `https://${href}`;
 };
 
-const ArticleCard = ({ href, image_url, title, date, info, location }) => {
+export const ArticleCard = ({ href, image_url, title, date, info, location }) => {
   return (
     <a href={href} target="_blank" rel="noopener noreferrer">
       <article className="link-card">
@@ -29,7 +30,7 @@ const ArticleCard = ({ href, image_url, title, date, info, location }) => {
           <div className="link-footer">
             <p>
               <span>
-                <i className="fas fa-map"></i>
+                <Map size={16} style={{ marginRight: '4px', marginBottom: '-3px' }} />
               </span>
               {location}
             </p>
