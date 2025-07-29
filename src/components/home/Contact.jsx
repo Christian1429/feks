@@ -12,6 +12,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import { useForm } from '@formspree/react';
 import '../../index.css';
+import Title from './Title';
 
 const Contact = () => {
   const email = import.meta.env.VITE_EMAIL_KEY;
@@ -53,12 +54,13 @@ const Contact = () => {
         background: `linear-gradient(to bottom, #ffffff 0%, #f8f1f1 10%, #f8f1f1 100%)`,
       }}
     >
-      <Typography variant="h5" sx={{ textAlign: 'center', mb: 2 }}>
-        Första steget mot er beredskap
-      </Typography>
+      <Title title="kontakta" subTitle="oss" />
+
       <Typography sx={{ textAlign: 'center', mb: 2 }}>
-        Fyll i dina uppgifter så kontaktar vi dig för kostnadsfri föreläsning
-        och konsultation.
+        Första steget mot er samberedskap
+        <br />
+        Fyll i formuläret eller skriv till <b>info@krissakra.se</b>, så
+        kontaktar vi dig för en kostnadsfri föreläsning och konsultation.
       </Typography>
 
       <Box
