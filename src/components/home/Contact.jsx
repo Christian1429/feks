@@ -143,6 +143,7 @@ const Contact = () => {
               disabled={state.submitting || !consent}
               sx={{
                 mt: 2,
+                height: '3rem',
                 backgroundColor: '#ba2c2c',
                 transition: 'transform 0.3s, background-color 0.3s',
                 '&:hover': {
