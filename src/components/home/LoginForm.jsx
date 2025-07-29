@@ -39,8 +39,8 @@ const LoginForm = ({ hideLoginForm }) => {
     <Modal
       open
       onClose={hideLoginForm}
-      aria-labelledby="login-modal-title"
-      aria-describedby="login-modal-description"
+      role="dialog"
+      aria-modal="true"
       BackdropProps={{
         style: {
           backgroundColor: 'rgba(255, 255, 255, 0)',
@@ -118,6 +118,7 @@ const LoginForm = ({ hideLoginForm }) => {
         </Box>
         <IconButton
           onClick={hideLoginForm}
+          aria-label="Stäng inloggningsformulär"
           sx={{
             position: 'absolute',
             top: '10px',
@@ -145,6 +146,7 @@ const LoginForm = ({ hideLoginForm }) => {
           <Box component="form" onSubmit={handleSubmit} sx={{ mt: 2 }}>
             <TextField
               label="Användarnamn"
+              aria-label="Fält för användarnamn"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               required
@@ -153,6 +155,7 @@ const LoginForm = ({ hideLoginForm }) => {
             />
             <TextField
               label="Lösenord"
+              aria-label="Fält för lösenord"
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -164,6 +167,7 @@ const LoginForm = ({ hideLoginForm }) => {
             <Box sx={{ paddingTop: '5rem' }}>
               <Button
                 type="submit"
+                aria-label="Logga in"
                 variant="contained"
                 color="primary"
                 fullWidth

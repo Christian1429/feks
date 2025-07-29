@@ -33,13 +33,17 @@ const Navbar = () => {
   return (
     <AppBar position="fixed">
       <Toolbar sx={{ backgroundColor: 'white' }}>
-        <Box sx={{ flexGrow: 1 }}>
+        <Box
+          sx={{ flexGrow: 1 }}
+          component="nav"
+          aria-label="Användar konto och sociala medier"
+        >
           <img
             src="https://s3krissakra.s3.eu-north-1.amazonaws.com/pictures/krissakra_logo.svg"
             alt="Krissäkra Sverige AB"
             className="nav-logo"
             style={{
-              height: '40px',
+             height: '40px',
             }}
           />
         </Box>
@@ -51,6 +55,7 @@ const Navbar = () => {
                 onClick={handleLogout}
                 variant="contained"
                 sx={{ margin: '8px 8px', height: '2rem' }}
+                aria-label="Logga ut"
               >
                 Logout
               </Button>
@@ -59,6 +64,7 @@ const Navbar = () => {
                 onClick={toggleLoginForm}
                 color="inherit"
                 disableRipple
+                aria-label="Öppna inloggningsfönster"
                 sx={{
                   transition: 'transform 0.3s, color 0.3s',
                   '&:hover': {
