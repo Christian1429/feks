@@ -4,6 +4,7 @@
   "description": "Krissäkra Sverige AB - Civil beredskap",
   "start_url": "/",
   "display": "standalone",
+  "lang": "sv-SE",
   "background_color": "#ffffff",
   "theme_color": "#ffffff",
   "icons": [

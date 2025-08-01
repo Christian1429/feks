@@ -12,28 +12,35 @@ const formatHref = (href) => {
   return `https://${href}`;
 };
 
-export const ArticleCard = ({ href, image_url, title, date, info, location }) => {
+export const ArticleCard = ({
+  href,
+  image_url,
+  title,
+  date,
+  info,
+  location,
+}) => {
   return (
     <a href={href} target="_blank" rel="noopener noreferrer">
-      <article className="link-card">
-        <div className="link-img-container">
-          <img src={image_url} className="link-img" alt={title} />
-          <p className="link-date">
+      <article className="transition-all duration-300 ease-in-out bg-gray-100 shadow-md mb-8 hover:shadow-xl hover:scale-[1.02] rounded-lg overflow-hidden">
+        <div className="relative">
+          <img
+            src={image_url}
+            alt={title}
+            className="w-full h-60 object-cover"
+          />
+          <p className="absolute right-0 bottom-0 bg-red-800 text-red-100 capitalize px-2 py-1">
             {new Date(date).toLocaleDateString('sv-SE')}
           </p>
         </div>
-        <div className="link-info">
-          <div className="link-title">
-            <h4>{title}</h4>
+        <div className="p-5">
+          <div className="flex justify-between flex-wrap">
+            <h4 className="mb-3 leading-tight">{title}</h4>
           </div>
-          <p>{info}</p>
-          <div className="link-footer">
-            <p>
-              <span>
-                <Map size={16} style={{ marginRight: '4px', marginBottom: '-3px' }} />
-              </span>
-              {location}
-            </p>
+          <p className="mb-3 text-gray-600">{info}</p>
+          <div className="flex items-center gap-1 text-gray-700">
+            <Map size={16} />
+            <span>{location}</span>
           </div>
         </div>
       </article>
@@ -73,21 +80,17 @@ export default function Articles() {
     : sortedArticles.length <= (isMobile ? 3 : 6);
 
   return (
-    <section className="section" id="articles">
+    <section>
       <Title title="rekommenderade" subTitle="artiklar" />
-      <div className="section-center featured-center">
+      <div
+        className="px-6 md:px-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3"
+      >
         {displayedArticles.map((article) => (
           <ArticleCard {...article} key={article.id} />
         ))}
       </div>
       {!allDisplayed && (
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            marginTop: '20px',
-          }}
-        >
+        <div className="flex justify-center mt-5 mb-5">
           <Button
             variant="contained"
             color="primary"

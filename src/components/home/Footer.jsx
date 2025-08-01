@@ -1,24 +1,16 @@
-import { Box, Typography } from '@mui/material';
 import SocialLinks from './SocialLinks';
 
 const Footer = () => {
   return (
-    <Box
-      component="footer"
-      className="section footer"
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        padding: '2rem 0',
-      }}
-    >
-      <SocialLinks itemClass="nav-icon" />
-      <Typography className="copyright" sx={{ marginTop: '1rem' }}>
+    <footer className="bg-red-950 text-center px-8 py-8 text-white">
+      <div className="flex justify-center flex-wrap mb-6">
+        <SocialLinks itemClass="footer-icon" />
+      </div>
+      <p className="text-sm tracking-wide capitalize">
         &copy; {new Date().getFullYear()} Krissäkra Sverige AB. All rights
         reserved.
-      </Typography>
-    </Box>
+      </p>
+    </footer>
   );
 };
 

@@ -38,8 +38,8 @@ const DrawerMenu = ({
         },
       }}
     >
-      <Box sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-        <List sx={{ flexGrow: 1 }}>
+      <Box className="h-full flex flex-col">
+        <List className="flex-grow">
           {[
             { key: 'clients', label: 'Klienter' },
             { key: 'create', label: 'Skapa användare' },
@@ -61,7 +61,7 @@ const DrawerMenu = ({
           ))}
         </List>
 
-        <Box sx={{ px: 2, pb: 4 }}>
+        <Box className="px-2 pb-4">
           <Button
             variant="contained"
             color="secondary"

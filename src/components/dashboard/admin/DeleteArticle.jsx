@@ -12,24 +12,12 @@ const ArticleDelete = ({ article, onDelete }) => {
     };
 
   return (
-    <div style={{ position: 'relative' }}>
+    <div className="relative">
       <ArticleCard {...cardProps} />
       {onDelete && (
         <button
           onClick={handleDeleteClick}
-          style={{
-            position: 'absolute',
-            zIndex: 5,
-            top: 5,
-            right: 5,
-            background: 'red',
-            color: 'white',
-            border: 'none',
-            borderRadius: '50%',
-            width: 24,
-            height: 24,
-            cursor: 'pointer',
-          }}
+          className="absolute top-1 right-1 z-50 bg-red-600 text-white rounded-full w-6 h-6 border-0 cursor-pointer flex items-center justify-center"
           aria-label="Delete article"
           title="Delete article"
         >
@@ -63,8 +51,8 @@ export default function ArticlesAdmin() {
   if (loading) return <p>Laddar artiklar...</p>;
 
   return (
-    <section className="section" id="admin-articles">
-      <div className="section-center featured-center">
+    <section>
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 px-4">
         {articles.map((article) => (
           <ArticleDelete
             key={article.id}

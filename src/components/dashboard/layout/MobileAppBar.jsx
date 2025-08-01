@@ -5,11 +5,11 @@ const MobileAppBar = ({ handleDrawerToggle }) => (
   <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
     <Toolbar>
       <IconButton
+        className="mr-2"
         color="inherit"
         aria-label="open drawer"
         edge="start"
         onClick={handleDrawerToggle}
-        sx={{ mr: 2 }}
       >
         <MenuIcon />
       </IconButton>

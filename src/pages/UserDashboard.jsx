@@ -5,14 +5,7 @@ import ClientMaps from '../components/dashboard/user/ClientMaps';
 
 const UserDashboard = () => {
   return (
-    <Container
-      className="dash"
-      maxWidth={false}
-      sx={{
-        width: '100%',
-        minHeight: '100vh',
-      }}
-    >
+    <Container>
       <ClientProfile />
       <ClientMaps />
     </Container>

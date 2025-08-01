@@ -30,9 +30,6 @@ import 'dayjs/locale/sv';
 import UpdateClient from './PutClient';
 import '../../../index.css';
 
-const mainColor = '#000000ff';
-const secondaryColor = '#767676ff';
-
 const fetchClients = async () => {
   const data = await getAllClient();
   return data;
@@ -119,14 +116,7 @@ const ClientList = () => {
 
   if (isLoading) {
     return (
-      <Box
-        sx={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          height: '100dvh',
-        }}
-      >
+      <Box className="flex justify-center items-center h-screen">
         <CircularProgress />
       </Box>
     );
@@ -143,17 +133,9 @@ const ClientList = () => {
         aria-labelledby="nested-list-subheader"
         subheader={
           <ListSubheader
+            className="text-black text-2xl mb-2 font-sans text-center max-w-[500px] mx-auto"
             component="div"
             id="nested-list-subheader"
-            sx={{
-              color: 'black',
-              fontSize: '1.5rem',
-              marginBottom: '0.5rem',
-              fontFamily: 'Sans-serif',
-              textAlign: 'center',
-              maxWidth: 500,
-              mx: 'auto',
-            }}
           >
             Användare info
           </ListSubheader>
@@ -162,67 +144,19 @@ const ClientList = () => {
         {clients.map((client) => (
           <div key={client.id}>
             <ListItem
-              className="textField"
               onClick={() => handleClick(client.id)}
-              sx={{
-                maxWidth: 500,
-                mx: 'auto',
-                cursor: 'pointer',
-                backgroundColor: mainColor,
-                borderRadius: '5px',
-                marginBottom: '0.5rem',
-                '&:hover': {
-                  backgroundColor: secondaryColor,
-                },
-              }}
-            >
+              className="max-w-[500px] mx-auto mb-2 cursor-pointer rounded-[5px] bg-black hover:bg-gray-700">
               <ListItemText
+                className="text-white text-center font-sans"
                 primary={`${client.address}`}
-                primaryTypographyProps={{
-                  style: {
-                    color: 'white',
-                    textAlign: 'center',
-                    fontFamily: 'Sans-serif',
-                  },
-                }}
               />
-              {open[client.id] ? (
-                <ExpandLess sx={{ color: 'white' }} />
-              ) : (
-                <ExpandMore sx={{ color: 'white' }} />
-              )}
+              {open[client.id] ? <ExpandLess /> : <ExpandMore />}
             </ListItem>
             <Collapse in={open[client.id]} timeout="auto" unmountOnExit>
-              <Box
-                sx={{
-                  maxWidth: 500,
-                  mx: 'auto',
-                  backgroundColor: '#f5f5f5',
-                  borderRadius: '4px',
-                  paddingBottom: '1rem',
-                }}
-              >
-                <List
-                  component="div"
-                  disablePadding
-                  sx={{
-                    '& .MuiListItem-root': {
-                      padding: '0px 12px',
-                    },
-                  }}
-                >
+              <Box className="max-w-[500px] mx-auto bg-[#f5f5f5] rounded-md pb-4">
+                <List className="py-0 px-3">
                   <ListItem>
-                    <ListItemText
-                      primary={
-                        client.brf
-                          ? `BRF: ${client.brf}`
-                          : `FÖRETAG: ${client.company}`
-                      }
-                      sx={{
-                        textTransform: 'uppercase',
-                        width: '100%',
-                      }}
-                    />
+                    <ListItemText className="text-uppercase" primary={client.brf ? `BRF: ${client.brf}` : `FÖRETAG: ${client.company}`} />
                   </ListItem>
                   <ListItem>
                     <ListItemText primary={`Org: ${client.org}`} />
