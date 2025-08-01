@@ -1,72 +1,8 @@
 @import "tailwindcss";
 
-:root {
-  --clr-primary-1: hsl(0, 91%, 17%);
-  --clr-primary-5: hsl(0, 62%, 45%);
-  --clr-primary-8: hsl(0, 80%, 74%);
-  --clr-grey-1: hsl(0, 61%, 16%);
-  --clr-grey-5: hsl(0, 22%, 49%);
-  --clr-grey-7: hsl(0, 27%, 70%);
-  --clr-grey-10: hsl(0, 36%, 96%);
-  --clr-white: #fff;
-  --transition: all 0.3s linear;
-  --spacing: 0.25rem;
-  --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
 html {
   scroll-behavior: smooth;
 }
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  background: var(--clr-white);
-  line-height: 1.5;
   font-size: 0.875rem;
 }
-ul {
-  list-style-type: none;
-}
-a {
-  text-decoration: none;
-}
-
-/*
-About
-*/
-/* .about-img,
-.about-info {
-  margin-bottom: 2rem;
-}
-
-@media screen and (min-width: 992px) {
-  .about-center {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 2rem;
-    margin-top: 4rem;
-  }
-  .about-img,
-  .about-info {
-    margin-bottom: 0;
-  }
-}
-
-@media screen and (min-width: 1170px) {
-  .about-img::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border: 0.5rem solid var(--clr-primary-5);
-    box-sizing: border-box;
-    top: -1.5rem;
-    left: -1.5rem;
-  }
-  .about-img {
-    position: relative;
-  }
-  .about-photo {
-    position: relative;
-  }
-} */
