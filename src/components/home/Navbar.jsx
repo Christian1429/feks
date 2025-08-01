@@ -18,60 +18,48 @@ const Navbar = () => {
   const toggleLoginForm = () => {
     setShowLogin(!showLogin);
   };
-
   const hideLoginForm = () => {
     setShowLogin(false);
   };
-
   const handleLogout = useLogout();
 
-  
   if (location.pathname.startsWith('/dashboard')) {
     return null;
   }
 
   return (
     <AppBar position="fixed">
-      <Toolbar sx={{ backgroundColor: 'white' }}>
+      <Toolbar className="bg-white">
         <Box
-          sx={{ flexGrow: 1 }}
+          className="flex-grow "
           component="nav"
           aria-label="Användar konto och sociala medier"
         >
           <img
             src="https://s3krissakra.s3.eu-north-1.amazonaws.com/pictures/krissakra_logo.svg"
             alt="Krissäkra Sverige AB"
-            className="nav-logo"
-            style={{
-             height: '40px',
-            }}
+            className="h-16"
           />
         </Box>
         {!isMobile && (
-          <Box sx={{ display: 'flex' }}>
-            <SocialLinks itemClass="nav-icon" />
+          <Box className="flex">
+            <SocialLinks/>
             {isAuthenticated ? (
               <Button
+                className="m-2 h-8"
                 onClick={handleLogout}
                 variant="contained"
-                sx={{ margin: '8px 8px', height: '2rem' }}
                 aria-label="Logga ut"
               >
                 Logout
               </Button>
             ) : (
               <IconButton
+                className="transition-transform ease-in-out duration-1000 hover:scale-120"
                 onClick={toggleLoginForm}
                 color="inherit"
                 disableRipple
                 aria-label="Öppna inloggningsfönster"
-                sx={{
-                  transition: 'transform 0.3s, color 0.3s',
-                  '&:hover': {
-                    transform: 'scale(1.2)',
-                    backgroundColor: 'transparent',
-                  },
-                }}
               >
                 <AccountCircle />
               </IconButton>
@@ -81,17 +69,19 @@ const Navbar = () => {
         {isMobile &&
           (isAuthenticated ? (
             <Button
+              className="mx-2"
               onClick={handleLogout}
               variant="contained"
-              sx={{ margin: '0 8px' }}
+              aria-label="Logga ut"
             >
               Logout
             </Button>
           ) : (
             <IconButton
+              className="mx-2"
               onClick={toggleLoginForm}
+              aria-label="Öppna inloggningsfönster"
               color="inherit"
-              sx={{ margin: '0 8px' }}
             >
               <AccountCircle />
             </IconButton>

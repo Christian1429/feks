@@ -13,16 +13,7 @@ const DashboardLayout = ({
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        minHeight: '100dvh',
-        backgroundImage:
-          'url(https://s3krissakra.s3.eu-north-1.amazonaws.com/pictures/redd-f-RfY1OQqlT3U-unsplash.jpg)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
-    >
+    <Box className="flex min-h-[100dvh] bg-[url('https://s3krissakra.s3.eu-north-1.amazonaws.com/pictures/redd-f-RfY1OQqlT3U-unsplash.jpg')] bg-cover bg-fixed">
       {isMobile && <MobileAppBar handleDrawerToggle={handleDrawerToggle} />}
 
       <DrawerMenu
@@ -32,14 +23,8 @@ const DashboardLayout = ({
         selected={selected}
         setSelected={setSelected}
       />
-      <Box
-        component="main"
-        sx={{
-          flexGrow: 1,
-          p: 2,
-          mt: isMobile ? '64px' : 0,
-          minHeight: '100dvh',
-        }}
+      <Box className={`flex-grow p-2 min-h-[100dvh] ${isMobile ? 'mt-16' : 'mt-0'}`}
+           component="main"
       >
         {children}
       </Box>

@@ -20,8 +20,6 @@ const LoginForm = ({ hideLoginForm }) => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
   const { login } = useContext(AuthContext);
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -37,123 +35,52 @@ const LoginForm = ({ hideLoginForm }) => {
 
   return (
     <Modal
+      className="flex items-center justify-center backdrop-blur-xs"
       open
       onClose={hideLoginForm}
       role="dialog"
       aria-modal="true"
-      BackdropProps={{
-        style: {
-          backgroundColor: 'rgba(255, 255, 255, 0)',
-          backdropFilter: 'blur(2px)',
-        },
-      }}
-      sx={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}
     >
-      <Box
-        className="modal-box"
-        sx={{
-          width: isMobile ? '100vw' : '400px',
-          height: isMobile ? '100dvh' : 'auto',
-          maxHeight: isMobile ? '100vh' : '90vh',
-          padding: isMobile ? '1rem' : '2rem',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          boxSizing: 'border-box',
-          position: 'relative',
-          overflow: 'hidden',
-          borderRadius: isMobile ? 0 : '12px',
-          backgroundColor: isMobile ? 'transparent' : 'white',
-          boxShadow: isMobile ? 'none' : theme.shadows[5],
-        }}
-      >
+      <Box className="w-screen sm:w-[400px] h-[100dvh] sm:h-auto max-h-screen sm:max-h-[90vh] p-4 sm:p-8 bg-transparent sm:bg-white rounded-none sm:rounded-lg shadow-none sm:shadow-lg relative overflow-hidden box-border">
         <img
+          className="absolute top-0 left-0 w-full h-full object-cover"
           src="https://s3krissakra.s3.eu-north-1.amazonaws.com/pictures/a5.jpg"
           alt="login-background"
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-          }}
         />
-        <div
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            background:
-              'linear-gradient(rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.0))',
-          }}
-        />
-        <Box
-          sx={{
-            display: 'flex',
-            justifyContent: 'center',
-            position: 'absolute',
-            top: '10px',
-            left: '50%',
-            transform: 'translateX(-50%)',
-            zIndex: 1,
-          }}
-        >
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-white/10 to-black/0" />
+        <Box className="flex justify-center absolute top-2.5 left-1/2 -translate-x-1/2 z-10">
           <img
+            className="mt-12 top-[20px] w-[60px] h-[60px]"
             src="https://s3krissakra.s3.eu-north-1.amazonaws.com/pictures/Svan.svg"
             alt="Logo-Svan"
-            style={{
-              position: 'absolute',
-              top: '20px',
-              width: '60px',
-              height: '60px',
-            }}
           />
         </Box>
-        <IconButton
-          onClick={hideLoginForm}
-          aria-label="Stäng inloggningsformulär"
-          sx={{
-            position: 'absolute',
-            top: '10px',
-            right: '10px',
-            background: 'none',
-            border: 'none',
-            cursor: 'pointer',
-            transition: 'transform 0.2s ease',
-            '&:hover': {
-              transform: 'scale(1.2)',
-              backgroundColor: 'transparent',
-            },
-          }}
-        >
-          <CloseIcon sx={{ color: 'black' }} />
-        </IconButton>
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            paddingTop: '10rem',
-            height: '100%',
-          }}
-        >
-          <Box component="form" onSubmit={handleSubmit} sx={{ mt: 2 }}>
+        <Box className="flex justify-end items-start absolute top-0 right-0 w-full h-full bg-transparent">
+          <IconButton
+            className="bg-transparent"
+            onClick={hideLoginForm}
+            aria-label="Stäng inloggningsformulär"
+          >
+            <CloseIcon sx={{ color: 'black' }} />
+          </IconButton>
+        </Box>
+        <Box className="flex flex-col items-center justify-center min-h-screen px-4 sm:pt-40">
+          <Box
+            className="w-full max-w-sm"
+            component="form"
+            onSubmit={handleSubmit}
+          >
             <TextField
+              sx={{ marginBottom: '1rem', maxWidth: '30rem' }}
               label="Användarnamn"
               aria-label="Fält för användarnamn"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               required
               fullWidth
-              sx={{ marginBottom: '1rem' }}
             />
             <TextField
+              sx={{ maxWidth: '30rem' }}
               label="Lösenord"
               aria-label="Fält för lösenord"
               type="password"
@@ -161,10 +88,9 @@ const LoginForm = ({ hideLoginForm }) => {
               onChange={(e) => setPassword(e.target.value)}
               required
               fullWidth
-              sx={{ marginBottom: '1rem' }}
             />
             {error && <p style={{ color: 'red' }}>{error}</p>}
-            <Box sx={{ paddingTop: '5rem' }}>
+            <Box className="pt-20">
               <Button
                 type="submit"
                 aria-label="Logga in"
@@ -176,7 +102,7 @@ const LoginForm = ({ hideLoginForm }) => {
                   backgroundColor: 'hsl(0, 62%, 45%)',
                   transition: 'var(--transition)',
                   '&:hover': {
-                    backgroundColor: 'hsl(0, 80%, 74%)',
+                    backgroundColor: 'hsla(0, 98%, 66%, 1.00)',
                   },
                 }}
               >
