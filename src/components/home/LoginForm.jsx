@@ -1,12 +1,9 @@
 import { useState, useContext } from 'react';
 import {
-  TextField,
   Button,
   Box,
   IconButton,
   Modal,
-  useMediaQuery,
-  useTheme,
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import { loginUser } from '../../api/authApi';
@@ -41,7 +38,7 @@ const LoginForm = ({ hideLoginForm }) => {
       role="dialog"
       aria-modal="true"
     >
-      <Box className="w-screen sm:w-[400px] h-[100dvh] sm:h-auto max-h-screen sm:max-h-[90vh] p-4 sm:p-8 bg-transparent sm:bg-white rounded-none sm:rounded-lg shadow-none sm:shadow-lg relative overflow-hidden box-border">
+      <Box className="w-screen h-screen sm:w-[650px] sm:h-auto sm:max-h-[800px] p-4 sm:p-8 bg-white sm:rounded-lg sm:shadow-lg relative overflow-hidden box-border">
         <img
           className="absolute top-0 left-0 w-full h-full object-cover"
           src="https://s3krissakra.s3.eu-north-1.amazonaws.com/pictures/a5.jpg"
@@ -50,7 +47,7 @@ const LoginForm = ({ hideLoginForm }) => {
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-white/10 to-black/0" />
         <Box className="flex justify-center absolute top-2.5 left-1/2 -translate-x-1/2 z-10">
           <img
-            className="mt-12 top-[20px] w-[60px] h-[60px]"
+            className="mt-12 top-[20px] w-[100px] h-[100px]"
             src="https://s3krissakra.s3.eu-north-1.amazonaws.com/pictures/Svan.svg"
             alt="Logo-Svan"
           />
@@ -64,33 +61,70 @@ const LoginForm = ({ hideLoginForm }) => {
             <CloseIcon sx={{ color: 'black' }} />
           </IconButton>
         </Box>
-        <Box className="flex flex-col items-center justify-center min-h-screen px-4 sm:pt-40">
+        <Box className="flex flex-col items-center justify-start px-4 pt-10 sm:pt-6 pb-6 overflow-y-auto h-full sm:h-auto mt-40">
           <Box
             className="w-full max-w-sm"
             component="form"
             onSubmit={handleSubmit}
           >
-            <TextField
-              sx={{ marginBottom: '1rem', maxWidth: '30rem' }}
-              label="Användarnamn"
-              aria-label="Fält för användarnamn"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              required
-              fullWidth
-            />
-            <TextField
-              sx={{ maxWidth: '30rem' }}
-              label="Lösenord"
-              aria-label="Fält för lösenord"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              fullWidth
-            />
+            <div class="mb-4 max-w-sm p-1 backdrop-blur-xl rounded-full">
+              <div
+                className="relative flex items-center p-2 rounded-full border border-gray-400 h-16 transition-all duration-300 
+                bg-black/40
+                sm:bg-transparent
+                hover:border-white 
+                focus-within:border-white 
+                focus-within:ring-2 
+                focus-within:ring-white 
+                focus-within:backdrop-blur-md 
+                focus-within:shadow-[0_0_20px_rgba(255,255,255,0.3)] 
+                focus-within:bg-black/60
+                sm:focus-within:bg-white/10
+              "
+              >
+                <label for="username" class="sr-only">
+                  Användarnamn
+                </label>
+                <input
+                  id="username"
+                  type="text"
+                  placeholder="Användarnamn"
+                  class="w-full bg-transparent outline-none pl-2 text-white placeholder-white placeholder:text-base placeholder:font-medium font-bold placeholder:tracking-wider"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                />
+              </div>
+            </div>
+            <div className="mb-4 max-w-sm p-1 rounded-full backdrop-blur-xl bg-black/60 sm:bg-transparent sm:bg-black">
+              <div
+                className="relative flex items-center p-2 rounded-full border border-gray-400 h-16 transition-all duration-300 
+                bg-black/40
+                sm:bg-transparent
+                hover:border-white 
+                focus-within:border-white 
+                focus-within:ring-2 
+                focus-within:ring-white 
+                focus-within:backdrop-blur-md 
+                focus-within:shadow-[0_0_20px_rgba(255,255,255,0.3)] 
+                focus-within:bg-black/60
+                sm:focus-within:bg-white/10
+                "
+              >
+                <label for="password" class="sr-only">
+                  Lösenord
+                </label>
+                <input
+                  id="password"
+                  type="text"
+                  placeholder="Lösenord"
+                  class="w-full bg-transparent outline-none pl-2 text-white placeholder-white placeholder:text-base placeholder:font-medium font-bold placeholder:tracking-wider"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </div>
+            </div>
             {error && <p style={{ color: 'red' }}>{error}</p>}
-            <Box className="pt-20">
+            <Box className="pt-18">
               <Button
                 type="submit"
                 aria-label="Logga in"
@@ -98,11 +132,19 @@ const LoginForm = ({ hideLoginForm }) => {
                 color="primary"
                 fullWidth
                 sx={{
-                  height: '45px',
+                  fontSize: '1rem',
+                  backdropFilter: 'blur(10px)',
+                  height: '60px',
+                  maxWidth: '24rem',
                   backgroundColor: 'hsl(0, 62%, 45%)',
-                  transition: 'var(--transition)',
+                  letterSpacing: '0.15em',
+                  transition:
+                    'transform 0.3s ease-in-out, background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                   '&:hover': {
-                    backgroundColor: 'hsla(0, 98%, 66%, 1.00)',
+                    backdropFilter: 'blur(10px)',
+                    backgroundColor: 'hsla(0, 73%, 51%, 1.00)',
+                    transform: 'scale(1)',
+                    boxShadow: '0 0 4px 1px hsla(0, 73%, 51%, 0.7)',
                   },
                 }}
               >

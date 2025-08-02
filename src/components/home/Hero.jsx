@@ -42,21 +42,21 @@ const handleScroll = () => {
 
       <div className="relative z-20 w-full flex justify-center items-center px-4 text-center">
         <div className="max-w-2xl text-white">
-          <h1 className="text-3xl sm:text-5xl font-bold uppercase">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold uppercase">
             Samberedskap
           </h1>
-          <p className="mt-4 max-w-md mx-auto tracking-wide">
-            Professionell hjälp med att skapa en tryggare vardag för dig, ditt
-            företag eller dina förenings medlemmar.
+          <p className="mt-8 max-w-md mx-auto tracking-wide text-lg">
+            Hjälper dig, ditt företag eller din förening att stå redo – oavsett
+            kris. Vi gör beredskap begripligt, praktiskt och genomförbart.
           </p>
-          <p className="mt-2 tracking-wide">
-            Ingen kan göra allt men alla kan göra något.
+          <p className="mt-2 tracking-wide text-lg italic">
+            Du kan inte förutse allt. Men du kan vara förberedd.
           </p>
           <a
             href="#contact-form"
             onClick={handleScroll}
             aria-label="Kontakta oss"
-            className="inline-flex items-center justify-center m-auto mt-8 text-2xl text-red-700 bg-white border-2 border-white rounded-lg shadow-lg transition-colors duration-300 hover:text-white hover:bg-transparent hover:border-white h-14 w-60 px-3"
+            className="inline-flex items-center justify-center m-auto mt-10 sm:mt-50 text-2xl text-red-700 bg-white border-2 border-white rounded-lg shadow-lg transition-colors duration-300 hover:text-white hover:bg-transparent hover:border-white h-14 w-60 px-3 md:w-80 md:h-20"
           >
             KONTAKTA OSS
           </a>
