@@ -22,7 +22,7 @@ export const ArticleCard = ({
 }) => {
   return (
     <a href={href} target="_blank" rel="noopener noreferrer">
-      <article className="transition-all duration-300 ease-in-out bg-gray-100 shadow-md mb-8 hover:shadow-xl hover:scale-[1.02] rounded-lg overflow-hidden">
+      <article className="transition-all duration-300 ease-in-out bg-gray-100 shadow-md mb-8 hover:shadow-xl hover:scale-[1.02] rounded-lg overflow-hidden hover:shadow-[0_12px_12px_rgba(0,0,0,0.25)]">
         <div className="relative">
           <img
             src={image_url}

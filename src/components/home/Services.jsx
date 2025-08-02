@@ -1,5 +1,4 @@
 import Title from './Title'
-
 import {
   MapPin,
   FileText,
@@ -48,7 +47,6 @@ const services = [
   },
 ];
 
-
 const Service = ({ icon, title, text }) => {
   return (
     <article className="group flex text-left rounded-xl bg-white p-4 shadow-md transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-[0_12px_12px_rgba(0,0,0,0.25)]">
@@ -65,10 +63,9 @@ const Service = ({ icon, title, text }) => {
   );
 };
 
-
 const Services = () => {
   return (
-    <section className="pt-8 pb-16 bg-gradient-to-t from-gray-100 via-gray-100 to-white">
+    <section className="pt-8 pb-16">
       <Title title="våra" subTitle="tjänster" />
       <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto w-[90vw] sm:w-[95vw]">
         {services.map((service) => (
