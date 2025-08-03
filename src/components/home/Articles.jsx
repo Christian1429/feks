@@ -22,7 +22,7 @@ export const ArticleCard = ({
 }) => {
   return (
     <a href={href} target="_blank" rel="noopener noreferrer">
-      <article className="transition-all duration-300 ease-in-out bg-gray-100 shadow-md mb-8 hover:shadow-xl hover:scale-[1.02] rounded-lg overflow-hidden hover:shadow-[0_12px_12px_rgba(0,0,0,0.25)]">
+      <article className="max-w-[95%] sm:max-w-[600px] mx-auto transition-all duration-300 ease-in-out bg-gray-100 shadow-md mb-8 hover:shadow-xl hover:scale-[1.02] rounded-lg overflow-hidden hover:shadow-[0_12px_12px_rgba(0,0,0,0.25)]">
         <div className="relative">
           <img
             src={image_url}
@@ -35,11 +35,11 @@ export const ArticleCard = ({
         </div>
         <div className="p-5">
           <div className="flex justify-between flex-wrap">
-            <h4 className="mb-3 leading-tight">{title}</h4>
+            <h4 className="mb-3 leading-tight text-xl">{title}</h4>
           </div>
-          <p className="mb-3 text-gray-600">{info}</p>
-          <div className="flex items-center gap-1 text-gray-700">
-            <Map size={16} />
+          <p className="mb-3 text-gray-800">{info}</p>
+          <div className="flex items-center gap-1">
+            <Map size={16} className="text-red-500" />
             <span>{location}</span>
           </div>
         </div>
@@ -82,12 +82,12 @@ export default function Articles() {
   return (
     <section>
       <Title title="rekommenderade" subTitle="artiklar" />
-      <div
-        className="px-6 md:px-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3"
-      >
-        {displayedArticles.map((article) => (
-          <ArticleCard {...article} key={article.id} />
-        ))}
+      <div className="max-w-450 mx-auto px-4">
+        <div className="px-6 md:px-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {displayedArticles.map((article) => (
+            <ArticleCard {...article} key={article.id} />
+          ))}
+        </div>
       </div>
       {!allDisplayed && (
         <div className="flex justify-center mt-5 mb-5">
