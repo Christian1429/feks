@@ -67,62 +67,64 @@ const LoginForm = ({ hideLoginForm }) => {
             component="form"
             onSubmit={handleSubmit}
           >
-            <div class="mb-4 max-w-sm p-1 backdrop-blur-xl rounded-full">
+            <div className="mb-4 max-w-sm p-1 rounded-full backdrop-blur-xl bg-black/10 sm:bg-transparent sm:bg-black">
               <div
-                className="relative flex items-center p-2 rounded-full border border-gray-400 h-16 transition-all duration-300 
-                bg-black/40
-                sm:bg-transparent
-                hover:border-white 
-                focus-within:border-white 
-                focus-within:ring-2 
-                focus-within:ring-white 
-                focus-within:backdrop-blur-md 
-                focus-within:shadow-[0_0_20px_rgba(255,255,255,0.3)] 
-                focus-within:bg-black/60
-                sm:focus-within:bg-white/10
-              "
+                className="
+                  relative flex items-center p-2 rounded-full border border-gray-400 h-16 transition-all duration-300
+                  bg-black/90 sm:bg-transparent
+                  hover:border-white 
+                  focus-within:border-white 
+                  focus-within:ring-2 
+                  focus-within:ring-white 
+                  focus-within:backdrop-blur-md 
+                  focus-within:shadow-[0_0_20px_rgba(255,255,255,0.3)] 
+                  focus-within:bg-black/80
+                  sm:focus-within:bg-white/10
+                "
               >
-                <label for="username" class="sr-only">
+                <label htmlFor="username" className="sr-only">
                   Användarnamn
                 </label>
                 <input
                   id="username"
                   type="text"
                   placeholder="Användarnamn"
-                  class="w-full bg-transparent outline-none pl-2 text-white placeholder-white placeholder:text-base placeholder:font-medium font-bold placeholder:tracking-wider"
+                  className="w-full bg-transparent outline-none pl-2 text-white placeholder-white placeholder:text-base placeholder:font-medium font-bold placeholder:tracking-wider"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
                 />
               </div>
             </div>
-            <div className="mb-4 max-w-sm p-1 rounded-full backdrop-blur-xl bg-black/60 sm:bg-transparent sm:bg-black">
+
+            <div className="mb-4 max-w-sm p-1 rounded-full backdrop-blur-xl bg-black/10 sm:bg-transparent sm:bg-black">
               <div
-                className="relative flex items-center p-2 rounded-full border border-gray-400 h-16 transition-all duration-300 
-                bg-black/40
-                sm:bg-transparent
-                hover:border-white 
-                focus-within:border-white 
-                focus-within:ring-2 
-                focus-within:ring-white 
-                focus-within:backdrop-blur-md 
-                focus-within:shadow-[0_0_20px_rgba(255,255,255,0.3)] 
-                focus-within:bg-black/60
-                sm:focus-within:bg-white/10
+                className="
+                  relative flex items-center p-2 rounded-full border border-white/30 h-16 transition-all duration-300
+                  bg-black/90 sm:bg-transparent 
+                  hover:border-white/70 
+                  focus-within:border-white/90 
+                  focus-within:ring-2 
+                  focus-within:ring-white/70 
+                  focus-within:backdrop-blur-md 
+                  focus-within:shadow-[0_0_30px_5px_rgba(255,255,255,0.15)] 
+                  focus-within:bg-black/80
+                  sm:focus-within:bg-white/10
                 "
               >
-                <label for="password" class="sr-only">
+                <label htmlFor="password" className="sr-only">
                   Lösenord
                 </label>
                 <input
                   id="password"
                   type="text"
                   placeholder="Lösenord"
-                  class="w-full bg-transparent outline-none pl-2 text-white placeholder-white placeholder:text-base placeholder:font-medium font-bold placeholder:tracking-wider"
+                  className="w-full bg-transparent outline-none pl-2 text-white placeholder-white placeholder:text-base placeholder:font-medium font-bold placeholder:tracking-wider"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
             </div>
+
             {error && <p style={{ color: 'red' }}>{error}</p>}
             <Box className="pt-18">
               <Button

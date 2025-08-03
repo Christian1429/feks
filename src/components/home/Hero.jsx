@@ -45,9 +45,9 @@ const handleScroll = () => {
           <h1 className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold uppercase">
             Samberedskap
           </h1>
-          <p className="mt-8 max-w-md mx-auto tracking-wide text-lg">
+          <p className="mt-8 mx-auto tracking-wide text-lg">
             Hjälper dig, ditt företag eller din förening att stå redo – oavsett
-            kris. Vi gör beredskap begripligt, praktiskt och genomförbart.
+            kris. <br /> Vi gör beredskap begripligt, praktiskt och genomförbart.
           </p>
           <p className="mt-2 tracking-wide text-lg italic">
             Du kan inte förutse allt. Men du kan vara förberedd.
