@@ -59,8 +59,7 @@ const Contact = () => {
       <Typography sx={{ textAlign: 'center', mb: 2 }}>
         Första steget mot er samberedskap
         <br />
-        Fyll i formuläret eller skriv till <b>info@krissakra.se</b>, så
-        kontaktar vi dig för en kostnadsfri föreläsning och konsultation.
+        <b>info@krissakra.se</b>
       </Typography>
 
       <Box
@@ -68,39 +67,69 @@ const Contact = () => {
         onSubmit={handleSubmit}
         sx={{ maxWidth: 600, mx: 'auto' }}
       >
-        <TextField
-          label="Ditt namn"
-          name="namn"
-          type="text"
-          required
-          fullWidth
-          margin="normal"
-        />
-        <TextField
-          label="Epost"
-          name="email"
-          type="email"
-          required
-          fullWidth
-          margin="normal"
-        />
-        <TextField
-          label="Telefon nummer"
-          name="phone"
-          type="text"
-          fullWidth
-          margin="normal"
-        />
-        <TextField
-          label="Meddelande"
-          name="message"
-          type="text"
-          required
-          fullWidth
-          multiline
-          rows={4}
-          margin="normal"
-        />
+        <div className="mb-4">
+          <label
+            htmlFor="namn"
+            className="block mb-1 font-semibold text-gray-700"
+          >
+            Ditt namn
+          </label>
+          <input
+            type="text"
+            id="namn"
+            name="namn"
+            required
+            className="w-full p-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-400 bg-white"
+          />
+        </div>
+
+        <div className="mb-4">
+          <label
+            htmlFor="email"
+            className="block mb-1 font-semibold text-gray-700"
+          >
+            Epost
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            className="w-full p-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-400 bg-white"
+          />
+        </div>
+
+        <div className="mb-4">
+          <label
+            htmlFor="phone"
+            className="block mb-1 font-semibold text-gray-700"
+          >
+            Telefon nummer
+          </label>
+          <input
+            type="text"
+            id="phone"
+            name="phone"
+            className="w-full p-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-400 bg-white"
+          />
+        </div>
+
+        <div className="mb-4">
+          <label
+            htmlFor="message"
+            className="block mb-1 font-semibold text-gray-700"
+          >
+            Meddelande
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            rows="4"
+            required
+            className="w-full p-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-400 resize-vertical bg-white"
+          ></textarea>
+        </div>
+
         <FormControlLabel
           control={
             <Checkbox

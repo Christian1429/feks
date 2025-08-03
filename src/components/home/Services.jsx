@@ -58,12 +58,14 @@ const Service = ({
   isHovered,
 }) => (
   <article
-    className={`group flex flex-col sm:h-38 sm:w-80 rounded-3xl border p-4 shadow-md transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-[0_12px_12px_rgba(0,0,0,0.25)]
+    className={`group flex flex-col sm:h-38 sm:w-80 rounded-3xl border p-4 shadow-md transition-all duration-300 ease-in-out
+    hover:scale-105 hover:shadow-[0_12px_12px_rgba(0,0,0,0.25)]
     ${isHovered ? 'border-red-600' : 'border-red-300'}
-    bg-black/50 md:bg-black/40
-    backdrop-blur-md backdrop-saturate-100 bg`}
+    bg-black/40 md:bg-black/40
+    backdrop-blur-md backdrop-saturate-140
+    hover:border-red-500 hover:shadow-[0_0_15px_4px_rgba(248,113,113,0.6)]`}
   >
-    <div className="flex items-center justify-center gap-3 mb-2">
+    <div className="flex items-center justify-start lg:justify-center gap-3 mb-2">
       <span className="bg-red-400 border-4 border-red-200 rounded-full grid place-items-center transition-transform duration-300 ease-in-out group-hover:rotate-12 group-hover:scale-110 group-hover:drop-shadow-[-4px_8px_6px_rgba(380,27,27,0.4)] w-12 h-12">
         {icon}
       </span>
@@ -71,11 +73,11 @@ const Service = ({
         {title}
       </h4>
     </div>
-    <p className="text-white leading-relaxed text-sm text-center">{text}</p>
+    <p className="text-white leading-relaxed text-sm text-center tracking-wide text-lg">{text}</p>
   </article>
 );
 
-const ServicesStarPattern = () => {
+const Services = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const centerService = services[0];
   const surroundingServices = services.slice(1);
@@ -89,7 +91,7 @@ const ServicesStarPattern = () => {
     style={{ backgroundImage: `url(${backgroundImage})` }}
   >
     <Title title="våra" subTitle="tjänster" />
-    <div className="flex flex-col items-center gap-6 px-4 lg:hidden">
+    <div className="flex flex-col items-center gap-6 px-4 lg:hidden tracking-wide text-lg">
       {services.map((service) => (
         <div key={service.id} className="w-full max-w-sm">
           <Service
@@ -179,4 +181,4 @@ const ServicesStarPattern = () => {
 
 };
 
-export default ServicesStarPattern;
+export default Services;
