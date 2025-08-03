@@ -51,7 +51,7 @@ const Contact = () => {
       sx={{
         padding: isMobile ? '20px' : '40px',
         scrollMarginTop: '100px',
-        background: `linear-gradient(to bottom, #ffffff 0%, #f8f1f1 10%, #f8f1f1 100%)`,
+        background: `linear-gradient(to bottom, #ffffff 0%, #f8f1f1 10%, #d2d2d2ff 100%)`,
       }}
     >
       <Title title="kontakta" subTitle="oss" />
