@@ -1,8 +1,19 @@
+import { ReactNode, Dispatch, SetStateAction } from 'react';
 import DrawerMenu from './DrawerMenu';
 import MobileAppBar from './MobileAppBar';
+
 import { Box, useMediaQuery, useTheme } from '@mui/material';
 
-const DashboardLayout = ({
+type DashboardSection = 'clients' | 'create' | 'upload' | 'articles';
+
+interface DashboardLayoutProps {
+  mobileOpen: boolean;
+  handleDrawerToggle: () => void;
+  selected: DashboardSection;
+  setSelected: Dispatch<SetStateAction<DashboardSection>>;
+  children: ReactNode;
+}
+const DashboardLayout: React.FC<DashboardLayoutProps> = ({
   mobileOpen,
   handleDrawerToggle,
   selected,
@@ -23,8 +34,11 @@ const DashboardLayout = ({
         selected={selected}
         setSelected={setSelected}
       />
-      <Box className={`flex-grow p-2 min-h-[100dvh] ${isMobile ? 'mt-16' : 'mt-0'}`}
-           component="main"
+      <Box
+        className={`flex-grow p-2 min-h-[100dvh] ${
+          isMobile ? 'mt-16' : 'mt-0'
+        }`}
+        component="main"
       >
         {children}
       </Box>

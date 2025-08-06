@@ -19,6 +19,7 @@ import {
   Button,
   Snackbar,
   Alert,
+  AlertColor,
 } from '@mui/material';
 import {
   Edit as EditIcon,
@@ -28,44 +29,47 @@ import {
 } from '@mui/icons-material';
 import 'dayjs/locale/sv';
 import UpdateClient from './PutClient';
+import type { Client } from '../../../types/Client';
+import type { ClientCreate } from '../../../types/Client';
+
 import '../../../index.css';
 
-const fetchClients = async () => {
+const fetchClients = async (): Promise<Client[]> => {
   const data = await getAllClient();
   return data;
 };
 
 const ClientList = () => {
   const queryClient = useQueryClient();
+
   const {
-    data: clients,
+    data: clients = [],
     isLoading,
     error,
-  } = useQuery({
+  } = useQuery<Client[]>({
     queryKey: ['clients'],
     queryFn: fetchClients,
   });
 
-  const [open, setOpen] = useState({});
-  const [editOpen, setEditOpen] = useState({});
+  const [open, setOpen] = useState<Record<string, boolean>>({});
+  const [editOpen, setEditOpen] = useState<Record<string, boolean>>({});
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
-  const [deleteClientId, setDeleteClientId] = useState(null);
+  const [deleteClientId, setDeleteClientId] = useState<string | null>(null);
   const [confirmationText, setConfirmationText] = useState('');
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState('');
-  const [snackbarSeverity, setSnackbarSeverity] = useState('Lyckades!');
+  const [snackbarSeverity, setSnackbarSeverity] = useState<AlertColor>('success');
 
   const deleteMutation = useMutation({
     mutationFn: deleteClient,
     onSuccess: () => {
-      queryClient.invalidateQueries(['clients']);
+      queryClient.invalidateQueries({ queryKey: ['clients'] });
       setSnackbarMessage('Användare är borttagen');
       setSnackbarSeverity('success');
     },
-
-    onError: (error) => {
+    onError: () => {
       setSnackbarMessage('Fel vid borttagning av användare');
-      setSnackbarSeverity('Fel');
+      setSnackbarSeverity('error');
     },
     onSettled: () => {
       setSnackbarOpen(true);
@@ -74,29 +78,24 @@ const ClientList = () => {
     },
   });
 
-  const handleClick = (id) => {
-    setOpen((prevOpen) => ({ ...prevOpen, [id]: !prevOpen[id] }));
+  const handleClick = (id: string) => {
+    setOpen((prev) => ({ ...prev, [id]: !prev[id] }));
   };
 
-  const handleEditClick = (id) => {
-    setEditOpen((prevEditOpen) => ({
-      ...prevEditOpen,
-      [id]: !prevEditOpen[id],
-    }));
+  const handleEditClick = (id: string) => {
+    setEditOpen((prev) => ({ ...prev, [id]: !prev[id] }));
   };
 
-  const handleUpdate = (updatedClient) => {
-    queryClient.setQueryData(['clients'], (oldData) => {
-      if (!oldData) {
-        return [updatedClient];
-      }
+  const handleUpdate = (updatedClient: Client) => {
+    queryClient.setQueryData<Client[]>(['clients'], (oldData) => {
+      if (!oldData) return [updatedClient];
       return oldData.map((client) =>
         client.id === updatedClient.id ? updatedClient : client
       );
     });
   };
 
-  const handleOpenDeleteDialog = (id) => {
+  const handleOpenDeleteDialog = (id: string) => {
     setDeleteClientId(id);
     setDeleteDialogOpen(true);
   };
@@ -111,7 +110,9 @@ const ClientList = () => {
   };
 
   const handleDeleteClient = () => {
-    deleteMutation.mutate(deleteClientId);
+    if (deleteClientId) {
+      deleteMutation.mutate(deleteClientId);
+    }
   };
 
   if (isLoading) {
@@ -122,7 +123,7 @@ const ClientList = () => {
     );
   }
 
-  if (error) {
+  if (error instanceof Error) {
     return <p>Error: {error.message}</p>;
   }
 
@@ -145,10 +146,11 @@ const ClientList = () => {
           <div key={client.id}>
             <ListItem
               onClick={() => handleClick(client.id)}
-              className="max-w-[500px] mx-auto mb-2 cursor-pointer rounded-[5px] bg-black hover:bg-gray-700">
+              className="max-w-[500px] mx-auto mb-2 cursor-pointer rounded-[5px] bg-black hover:bg-gray-700"
+            >
               <ListItemText
                 className="text-white text-center font-sans"
-                primary={`${client.address}`}
+                primary={client.address}
               />
               {open[client.id] ? <ExpandLess /> : <ExpandMore />}
             </ListItem>
@@ -156,7 +158,13 @@ const ClientList = () => {
               <Box className="max-w-[500px] mx-auto bg-[#f5f5f5] rounded-md pb-4">
                 <List className="py-0 px-3">
                   <ListItem>
-                    <ListItemText className="text-uppercase" primary={client.brf ? `BRF: ${client.brf}` : `FÖRETAG: ${client.company}`} />
+                    <ListItemText
+                      primary={
+                        client.brf
+                          ? `BRF: ${client.brf}`
+                          : `FÖRETAG: ${client.company}`
+                      }
+                    />
                   </ListItem>
                   <ListItem>
                     <ListItemText primary={`Org: ${client.org}`} />
@@ -173,6 +181,9 @@ const ClientList = () => {
                   <ListItem>
                     <ListItemText primary={`Post: ${client.areacode}`} />
                   </ListItem>
+                  {/* <ListItem>
+                    <ListItemText primary={`Uppdaterad: ${client.updatedAt}`} />
+                  </ListItem> */}
                   <ListItem>
                     <ListItemText
                       primary={`Skapad: ${new Date(
@@ -212,7 +223,11 @@ const ClientList = () => {
                   </ListItem>
                   {editOpen[client.id] && (
                     <ListItem sx={{ marginBottom: '2rem' }}>
-                      <UpdateClient client={client} onUpdate={handleUpdate} />
+                      <UpdateClient
+                        client={client}
+                        onUpdate={handleUpdate}
+                        onCloseEdit={() => handleEditClick(client.id)}
+                      />
                     </ListItem>
                   )}
                 </List>

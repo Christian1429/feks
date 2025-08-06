@@ -1,18 +1,18 @@
 import { useEffect, useState } from 'react';
 import { loadGoogleMapsApi } from '../../../utils/loadGoogleMapsApi';
 
-const ClientMaps = () => {
-  const [isApiLoaded, setIsApiLoaded] = useState(false);
-  const [error, setError] = useState(null);
+const ClientMaps: React.FC = () => {
+  const [isApiLoaded, setIsApiLoaded] = useState<boolean>(false);
+  const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
-    const apiKey = import.meta.env.VITE_MAPS_API_KEY;
+    const apiKey = import.meta.env.VITE_MAPS_API_KEY as string;
 
     loadGoogleMapsApi(apiKey)
       .then(() => {
         setIsApiLoaded(true);
       })
-      .catch((error) => {
+      .catch((error: Error) => {
         console.error('Error loading Google Maps API:', error);
         setError(error);
       });
@@ -31,7 +31,7 @@ const ClientMaps = () => {
           height="100%"
           style={{ border: 'none' }}
           title="Google Maps"
-        ></iframe>
+        />
       ) : (
         <div>Loading...</div>
       )}

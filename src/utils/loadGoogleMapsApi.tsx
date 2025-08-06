@@ -1,8 +1,8 @@
-let googleMapsApiPromise;
+let googleMapsApiPromise: Promise<void> | undefined;
 
-export const loadGoogleMapsApi = (apiKey) => {
+export const loadGoogleMapsApi = (apiKey: string): Promise<void> => {
   if (!googleMapsApiPromise) {
-    googleMapsApiPromise = new Promise((resolve, reject) => {
+    googleMapsApiPromise = new Promise<void>((resolve, reject) => {
       const script = document.createElement('script');
       script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places,geometry&v=weekly`;
       script.async = true;

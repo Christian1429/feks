@@ -9,7 +9,17 @@ import {
 } from '@mui/material';
 import { useLogout } from '../../../utils/handleLogout';
 
-const DrawerMenu = ({
+type DashboardSection = 'clients' | 'create' | 'upload' | 'articles';
+
+interface DrawerMenuProps {
+  mobileOpen: boolean;
+  handleDrawerToggle: () => void;
+  isMobile: boolean;
+  selected: DashboardSection;
+  setSelected: React.Dispatch<React.SetStateAction<DashboardSection>>;
+}
+
+const DrawerMenu: React.FC<DrawerMenuProps> = ({
   mobileOpen,
   handleDrawerToggle,
   isMobile,
@@ -17,6 +27,13 @@ const DrawerMenu = ({
   setSelected,
 }) => {
   const handleLogout = useLogout();
+
+  const items: { key: DashboardSection; label: string }[] = [
+    { key: 'clients', label: 'Klienter' },
+    { key: 'create', label: 'Skapa användare' },
+    { key: 'upload', label: 'Lägg upp artikel' },
+    { key: 'articles', label: 'Artiklar' },
+  ];
 
   return (
     <Drawer
@@ -40,12 +57,7 @@ const DrawerMenu = ({
     >
       <Box className="h-full flex flex-col">
         <List className="flex-grow">
-          {[
-            { key: 'clients', label: 'Klienter' },
-            { key: 'create', label: 'Skapa användare' },
-            { key: 'upload', label: 'Lägg upp artikel' },
-            { key: 'articles', label: 'Artiklar' },
-          ].map((item) => (
+          {items.map((item) => (
             <ListItem key={item.key} disablePadding>
               <ListItemButton
                 selected={selected === item.key}

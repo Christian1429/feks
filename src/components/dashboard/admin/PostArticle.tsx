@@ -1,11 +1,19 @@
-import { useState } from 'react';
+import { useState, ChangeEvent, FormEvent } from 'react';
 import { Box, TextField, Button, Typography, Stack } from '@mui/material';
 import { postArticle, uploadImage } from '../../../api/articleApi';
 
+interface ArticleFormData {
+  title: string;
+  info: string;
+  date: string;
+  location: string;
+  href: string;
+}
+
 export default function UploadArticle() {
-  const [file, setFile] = useState(null);
-  const [preview, setPreview] = useState(null);
-  const [data, setData] = useState({
+  const [file, setFile] = useState<File | null>(null);
+  const [preview, setPreview] = useState<string | null>(null);
+  const [data, setData] = useState<ArticleFormData>({
     title: '',
     info: '',
     date: '',
@@ -14,34 +22,37 @@ export default function UploadArticle() {
   });
   const [loading, setLoading] = useState(false);
 
-  function handleInputChange(e) {
+  const handleInputChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setData((prev) => ({ ...prev, [name]: value }));
-  }
+  };
 
-  function handleFileChange(e) {
-    const selectedFile = e.target.files[0];
+  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const selectedFile = e.target.files?.[0] || null;
     setFile(selectedFile);
     if (selectedFile) {
       setPreview(URL.createObjectURL(selectedFile));
     } else {
       setPreview(null);
     }
-  }
+  };
 
-  const formatHref = (href) => {
+  const formatHref = (href: string): string => {
     if (!href.startsWith('http://') && !href.startsWith('https://')) {
       return `https://${href}`;
     }
     return href;
   };
 
-  async function handleSubmit(e) {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!file) {
       alert('Please select an image.');
       return;
     }
+
     setLoading(true);
     try {
       const imageUrl = await uploadImage(file);
@@ -60,16 +71,13 @@ export default function UploadArticle() {
     } finally {
       setLoading(false);
     }
-  }
+  };
 
   return (
     <Box
       component="form"
       onSubmit={handleSubmit}
-      sx={{
-        maxWidth: 500,
-        mx: 'auto',
-      }}
+      sx={{ maxWidth: 500, mx: 'auto' }}
       noValidate
       autoComplete="off"
     >
