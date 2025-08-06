@@ -5,6 +5,7 @@ import { AuthContext } from '../context/AuthContext';
 interface ProtectedRouteProps {
   children: ReactNode;
   userRoute: string;
+  adminRoute: string;
 }
 
 const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
@@ -25,7 +26,8 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
     return <>{children}</>;
   }
 
-  return null;
+  return <Navigate to="/" replace />;
 };
 
 export default ProtectedRoute;
+

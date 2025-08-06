@@ -1,16 +1,16 @@
-import { Suspense, lazy } from 'react';
+import { Suspense, lazy, ReactElement } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/home/Navbar';
 import ProtectedRoute from './utils/ProtectedRoute';
 import AuthProvider from './context/AuthContext';
 import theme from './theme';
 import { ThemeProvider } from '@mui/material/styles';
-import  UserDashboard from './pages/UserDashboard';
+import UserDashboard from './pages/UserDashboard';
 
 const Dashboard = lazy(() => import('./pages/Dashboard'));
 const Home = lazy(() => import('./pages/Home'));
 
-function App() {
+function App(): ReactElement {
   return (
     <AuthProvider>
       <ThemeProvider theme={theme}>
