@@ -1,7 +1,11 @@
 import { AppBar, Toolbar, IconButton, Typography } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 
-const MobileAppBar = ({ handleDrawerToggle }) => (
+interface MobileAppBarProps {
+  handleDrawerToggle: () => void;
+}
+
+const MobileAppBar: React.FC<MobileAppBarProps> = ({ handleDrawerToggle }) => (
   <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
     <Toolbar>
       <IconButton

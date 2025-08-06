@@ -5,9 +5,11 @@ import CreateClient from '../components/dashboard/admin/PostClient';
 import UploadArticle from '../components/dashboard/admin/PostArticle';
 import DeleteArticle from '../components/dashboard/admin/DeleteArticle';
 
-const Dashboard = () => {
-  const [selected, setSelected] = useState('clients');
-  const [mobileOpen, setMobileOpen] = useState(false);
+type DashboardSection = 'clients' | 'create' | 'upload' | 'articles';
+
+const Dashboard: React.FC = () => {
+  const [selected, setSelected] = useState<DashboardSection>('clients');
+  const [mobileOpen, setMobileOpen] = useState<boolean>(false);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);

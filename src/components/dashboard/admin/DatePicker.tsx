@@ -2,11 +2,18 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { Box } from '@mui/material';
-import dayjs from 'dayjs';
+import dayjs, { type Dayjs } from 'dayjs';
 import 'dayjs/locale/sv';
+import type { ClientCreate } from '../../../types/Client';
 
-const DatePickerClient = ({ fromDate, toDate, setClient }) => {
-  const handleFromDateChange = (newValue) => {
+interface DatePickerClientProps {
+  fromDate: string | null;
+  toDate: string | null;
+  setClient: React.Dispatch<React.SetStateAction<ClientCreate>>;
+}
+
+const DatePickerClient: React.FC<DatePickerClientProps> = ({ fromDate, toDate, setClient }) => {
+  const handleFromDateChange = (newValue: Dayjs | null) => {
     const formattedDate = newValue ? newValue.toDate().toLocaleDateString('sv-SE') : null;
     setClient((prevClient) => ({
       ...prevClient,
@@ -14,7 +21,7 @@ const DatePickerClient = ({ fromDate, toDate, setClient }) => {
     }));
   };
 
-  const handleToDateChange = (newValue) => {
+  const handleToDateChange = (newValue: Dayjs | null) => {
     const formattedDate = newValue
       ? newValue.toDate().toLocaleDateString('sv-SE')
       : null;

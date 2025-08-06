@@ -1,7 +1,7 @@
-import axios from 'axios';
+import axios, { InternalAxiosRequestConfig } from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL: import.meta.env.VITE_BASE_URL,
+  baseURL: import.meta.env.VITE_BASE_URL as string,
   headers: {
     'Content-Type': 'application/json',
   },
@@ -9,15 +9,14 @@ const axiosInstance = axios.create({
 });
 
 axiosInstance.interceptors.request.use(
-  (config) => {
+  (config: InternalAxiosRequestConfig) => {
     const user = localStorage.getItem('user');
     if (user) {
       try {
-        const parsedUser = JSON.parse(user);
+        const parsedUser = JSON.parse(user) as { token?: string; role?: string };
         const token = parsedUser.token;
-        const role = parsedUser.role;
 
-        if (token) {
+        if (token && config.headers) {
           config.headers['Authorization'] = `Bearer ${token}`;
         }
       } catch (error) {
@@ -30,6 +29,6 @@ axiosInstance.interceptors.request.use(
     console.error('Request error:', error);
     return Promise.reject(error);
   }
-)
+);
 
 export default axiosInstance;

@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 import { getProfile } from '../../../api/clientApi';
 import '../../../index.css';
+import type { Client } from '../../../types/Client';
 
-const ClientProfile = () => {
-  const [client, setClient] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
+const ClientProfile: React.FC = () => {
+  const [client, setClient] = useState<Client | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
     const fetchClient = async () => {
@@ -14,7 +15,7 @@ const ClientProfile = () => {
         setClient(data);
       } catch (error) {
         console.error('Error fetching client:', error);
-        setError(error);
+        setError(error instanceof Error ? error : new Error(String(error)));
       } finally {
         setIsLoading(false);
       }

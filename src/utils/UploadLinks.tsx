@@ -1,7 +1,11 @@
 import { uploadImage } from '../api/articleApi';
 
-export async function handleImageUpload(e, setPreview, setLoading) {
-  const selectedFile = e.target.files[0];
+export async function handleImageUpload(
+  e: React.ChangeEvent<HTMLInputElement>,
+  setPreview: (url: string | null) => void,
+  setLoading: (loading: boolean) => void
+): Promise<string | null> {
+  const selectedFile = e.target.files?.[0];
   if (!selectedFile) return null;
 
   setPreview(URL.createObjectURL(selectedFile));

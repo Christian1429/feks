@@ -15,9 +15,10 @@ import {
 import DatePickerClient from './DatePicker';
 import 'dayjs/locale/sv';
 import { v4 as uuidv4 } from 'uuid';
+import type { ClientCreate } from '../../../types/Client';
 
 const CreateClient = () => {
-  const [client, setClient] = useState({
+  const [client, setClient] = useState<ClientCreate>({
     id: uuidv4(),
     phone: '',
     client: '',
@@ -35,26 +36,25 @@ const CreateClient = () => {
   const [choice, setChoice] = useState('brf');
   const queryClient = useQueryClient();
 
-  const mutation = useMutation({
-    mutationFn: postClient,
-    onSuccess: () => {
-      queryClient.invalidateQueries(['clients']);
-    },
-    onError: (error) => {
-      console.error('Error creating client:', error);
-    },
-  });
+const mutation = useMutation<void, Error, ClientCreate>({
+  mutationFn: postClient,
+  onSuccess: () => {
+    queryClient.invalidateQueries({ queryKey: ['clients'] });
+  },
+  onError: (error) => {
+    console.error('Error creating client:', error);
+  },
+});
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setClient((prevClient) => ({ ...prevClient, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    mutation.mutate(client);
-  };
-
+const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  mutation.mutate(client);
+};
   const handleChoiceChange = (e) => {
     setChoice(e.target.value);
   };
