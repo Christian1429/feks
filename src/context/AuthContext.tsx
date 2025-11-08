@@ -28,19 +28,42 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     if (storedUser) {
       try {
         const parsedUser = JSON.parse(storedUser) as User;
-        setUser(parsedUser);
-        setIsAuthenticated(true);
+        // Only set authenticated if token exists and is not empty
+        if (parsedUser.token && parsedUser.token.trim() !== '') {
+          setUser(parsedUser);
+          setIsAuthenticated(true);
+        } else {
+          // Invalid user data - remove it
+          localStorage.removeItem('user');
+          setUser(null);
+          setIsAuthenticated(false);
+        }
       } catch (error) {
         console.error('Error parsing stored user data:', error);
         localStorage.removeItem('user');
+        setUser(null);
+        setIsAuthenticated(false);
       }
+    } else {
+      // No stored user - ensure we're logged out
+      setUser(null);
+      setIsAuthenticated(false);
     }
   }, []);
 
   const login = (userData: User) => {
-    localStorage.setItem('user', JSON.stringify(userData));
-    setUser(userData);
-    setIsAuthenticated(true);
+    // Only login if token exists and is not empty
+    if (userData.token && userData.token.trim() !== '') {
+      localStorage.setItem('user', JSON.stringify(userData));
+      setUser(userData);
+      setIsAuthenticated(true);
+    } else {
+      // Invalid user data - don't login
+      console.error('Login failed: Invalid token');
+      localStorage.removeItem('user');
+      setUser(null);
+      setIsAuthenticated(false);
+    }
   };
 
   const logout = () => {

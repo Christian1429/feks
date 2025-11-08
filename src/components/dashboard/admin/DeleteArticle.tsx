@@ -1,5 +1,5 @@
+import React, { useEffect, useState } from 'react';
 import { ArticleCard } from '../../home/Articles';
-import { useEffect, useState } from 'react';
 import { getAllArticles, deleteArticle } from '../../../api/articleApi';
 import type { Article } from '../../../api/articleApi';
 
@@ -9,25 +9,29 @@ interface ArticleDeleteProps {
 }
 
 const ArticleDelete: React.FC<ArticleDeleteProps> = ({ article, onDelete }) => {
-  const { id, s3key, ...cardProps } = article;
+  const { id, s3key, href, ...cardProps } = article;
 
-  const handleDeleteClick = () => {
+  const handleDeleteClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
     if (window.confirm('Vill du verkligen ta bort?')) {
       onDelete(id, s3key);
     }
   };
 
   return (
-    <div className="relative">
-      <ArticleCard {...cardProps} />
+    <div className="relative w-full">
+      <div className="relative max-w-[95%] sm:max-w-[600px] mx-auto">
+        <ArticleCard {...cardProps} href={href || '#'} />
         <button
           onClick={handleDeleteClick}
-          className="absolute top-1 right-1 z-50 bg-red-600 text-white rounded-full w-6 h-6 border-0 cursor-pointer flex items-center justify-center"
+          className="absolute top-2 right-2 z-[100] bg-red-600 hover:bg-red-700 text-white rounded-full w-8 h-8 border-0 cursor-pointer flex items-center justify-center text-xl font-bold shadow-lg"
           aria-label="Delete article"
           title="Delete article"
         >
           &times;
         </button>
+      </div>
     </div>
   );
 };
