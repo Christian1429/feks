@@ -36,8 +36,8 @@ const Navbar = () => {
           aria-label="Användar konto och sociala medier"
         >
           <img
-            src="https://s3krissakra.s3.eu-north-1.amazonaws.com/pictures/krissakra_logo.svg"
-            alt="Krissäkra Sverige AB"
+            src="https://s3krissakra.s3.eu-north-1.amazonaws.com/pictures/logo_beredskap.png"
+            alt="Beredskap Logo"
             className="h-16"
           />
         </Box>

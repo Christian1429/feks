@@ -15,7 +15,7 @@ const About = () => {
           </div>
           <article className="p-5 sm:px-8 lg:pr-8 lg:pl-2 pt-3 pb-10 lg:mt-0 text-gray-700 leading-relaxed">
             <p>
-              Krisäkras styrka bygger på en unik kombination av gedigen
+              Samberedskaps styrka bygger på en unik kombination av gedigen
               akademisk expertis och omfattande praktisk erfarenhet inom
               fastigheter och utbildning. <br /> Vi förenar kunskap och insikt
               för att erbjuda skräddarsydda lösningar som inte bara stärker
