@@ -15,6 +15,8 @@ import '../../index.css';
 import Title from './Title';
 
 const Contact = () => {
+  console.log("ENV:", import.meta.env);
+  console.log("FORM KEY:", import.meta.env.VITE_EMAIL_KEY);
   const email = import.meta.env.VITE_EMAIL_KEY;
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
