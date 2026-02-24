@@ -11,13 +11,13 @@ const socialLinks = [
   },
   {
     id: 2,
-    href: 'https://www.instagram.com/krissakra/',
+    href: 'https://www.instagram.com/Samberedskap/',
     icon: <InstagramIcon fontSize="medium" />,
     label: 'Instagram',
   },
   {
     id: 3,
-    href: 'https://x.com/Krissakra',
+    href: 'https://x.com/samberedskap',
     icon: <XIcon fontSize="medium" />,
     label: 'X (Twitter)',
   },

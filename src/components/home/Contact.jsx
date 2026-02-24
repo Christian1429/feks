@@ -59,7 +59,6 @@ const Contact = () => {
       <Typography sx={{ textAlign: 'center', mb: 2 }}>
         Första steget mot er samberedskap
         <br />
-        <b>info@krissakra.se</b>
       </Typography>
 
       <Box
