@@ -19,32 +19,45 @@ export const ArticleCard = ({
   date,
   info,
   location,
+  className,
+  children
 }) => {
   return (
-    <a href={href} target="_blank" rel="noopener noreferrer">
-      <article className="max-w-[95%] sm:max-w-[600px] mx-auto transition-all duration-300 ease-in-out bg-gray-100 shadow-md mb-8 hover:shadow-xl hover:scale-[1.02] rounded-lg overflow-hidden hover:shadow-[0_12px_12px_rgba(0,0,0,0.25)]">
-        <div className="relative">
-          <img
-            src={image_url}
-            alt={title}
-            className="w-full h-60 object-cover"
-          />
-          <p className="absolute right-0 bottom-0 bg-red-800 text-red-100 capitalize px-2 py-1">
-            {new Date(date).toLocaleDateString('sv-SE')}
-          </p>
-        </div>
-        <div className="p-5">
-          <div className="flex justify-between flex-wrap">
-            <h4 className="mb-3 leading-tight text-xl">{title}</h4>
+    <div className={`relative ${className || ""}`}>
+
+      {children}
+
+      <a href={href} target="_blank" rel="noopener noreferrer">
+        <article className="relative max-w-[95%] sm:max-w-[600px] mx-auto transition-all duration-300 ease-in-out bg-gray-100 shadow-md mb-8 hover:shadow-xl hover:scale-[1.02] rounded-lg overflow-hidden hover:shadow-[0_12px_12px_rgba(0,0,0,0.25)]">
+          
+          <div className="relative">
+            <img
+              src={image_url}
+              alt={title}
+              className="w-full h-60 object-cover"
+            />
+            <p className="absolute right-0 bottom-0 bg-red-800 text-red-100 capitalize px-2 py-1">
+              {new Date(date).toLocaleDateString('sv-SE')}
+            </p>
           </div>
-          <p className="mb-3 text-gray-800">{info}</p>
-          <div className="flex items-center gap-1">
-            <Map size={16} className="text-red-500" />
-            <span>{location}</span>
+
+          <div className="p-5">
+            <div className="flex justify-between flex-wrap">
+              <h4 className="mb-3 leading-tight text-xl">{title}</h4>
+            </div>
+
+            <p className="mb-3 text-gray-800">{info}</p>
+
+            <div className="flex items-center gap-1">
+              <Map size={16} className="text-red-500" />
+              <span>{location}</span>
+            </div>
           </div>
-        </div>
-      </article>
-    </a>
+
+        </article>
+      </a>
+
+    </div>
   );
 };
 

@@ -46,10 +46,10 @@ const Navbar = () => {
             <SocialLinks/>
             {isAuthenticated ? (
               <Button
-                className="m-2 h-8"
+                className="mx-2"
                 onClick={handleLogout}
                 variant="contained"
-                aria-label="Logga ut"
+                aria-label=""
               >
                 Logout
               </Button>

@@ -17,19 +17,35 @@ const ArticleDelete: React.FC<ArticleDeleteProps> = ({ article, onDelete }) => {
     }
   };
 
-  return (
-    <div className="relative">
-      <ArticleCard {...cardProps} />
-        <button
-          onClick={handleDeleteClick}
-          className="absolute top-1 right-1 z-50 bg-red-600 text-white rounded-full w-6 h-6 border-0 cursor-pointer flex items-center justify-center"
-          aria-label="Delete article"
-          title="Delete article"
-        >
-          &times;
-        </button>
-    </div>
-  );
+return (
+  <ArticleCard {...cardProps} className="group">
+    <button
+      onClick={handleDeleteClick}
+      className="
+        absolute
+        top-10 left-1/2
+        -translate-x-1/2 -translate-y-1/2
+        z-20
+        bg-red-600 
+        hover:bg-red-700
+        text-white
+        font-bold
+        rounded-full
+        w-50 h-10
+        flex items-center justify-center
+        shadow-lg
+        transition-all duration-200
+        opacity-0 group-hover:opacity-100
+        border-2 border-white/40
+        ring-1 ring-black/10
+      "
+      aria-label="Ta bort artikel"
+      title="Ta bort artikel"
+    >
+      <span className="text-2xl">Ta bort</span>
+    </button>
+  </ArticleCard>
+);
 };
 
 export default function ArticlesAdmin() {

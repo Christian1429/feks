@@ -14,6 +14,8 @@ export interface Article {
   href: string;
   image_url: string;
   s3key: string
+  className?: string;
+  children?: React.ReactNode;
 }
 
 // S3 POST

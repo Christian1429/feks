@@ -73,7 +73,7 @@ const DrawerMenu: React.FC<DrawerMenuProps> = ({
           ))}
         </List>
 
-        <Box className="px-2 pb-4">
+        <Box className="px-2 mb-10">
           <Button
             variant="contained"
             color="secondary"
